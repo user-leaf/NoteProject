@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tvMerge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/holo_green_light"
+        android:gravity="center"
+        android:minHeight="50dp"
+        android:text="merge的使用" />
+
+    <TextView
+        android:id="@+id/tvTitleBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/holo_blue_light"
+        android:gravity="center"
+        android:minHeight="50dp"
+        android:text="定义一个ToolBar放到原先ActionBar的位置上，可以在主页面中使用" />
+
+</LinearLayout>
