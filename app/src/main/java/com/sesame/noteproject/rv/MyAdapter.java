@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -14,7 +15,7 @@ import com.sesame.noteproject.R;
 
 import java.util.List;
 
-public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
+public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> implements View.OnClickListener {
 
     private Context mContext;
     private List<Person> mList;
@@ -28,6 +29,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_person, parent, false);
+        view.setOnClickListener(this);// 最好写在Create里，而不是Bind里
         return new ViewHolder(view);
     }
 
@@ -43,6 +45,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         if (payloads.isEmpty()) {
             onBindViewHolder(holder, position);
         } else {
+            mList.get(position).name = "hehehe";
             String payload = payloads.get(0).toString();
             if ("changeText".equals(payload)) {
                 holder.mTextView.setText("hahaha");
@@ -53,6 +56,11 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     @Override
     public int getItemCount() {
         return mList != null ? mList.size() : 0;
+    }
+
+    @Override
+    public void onClick(View view) {
+        Toast.makeText(mContext, "click", Toast.LENGTH_SHORT).show();
     }
 
     static class ViewHolder extends RecyclerView.ViewHolder {

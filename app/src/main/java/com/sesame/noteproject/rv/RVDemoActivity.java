@@ -28,6 +28,8 @@ public class RVDemoActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         mAdapter = new MyAdapter(this, mPersonList);
         recyclerView.setAdapter(mAdapter);
+        // 如果高度固定，可以设置setHasFixedSize(true)来避免requestLayout浪费资源，否则每次更新数据都会重新测量高度。
+        recyclerView.setHasFixedSize(true);
 
         for (int i = 0; i < 20; i++) {
             Person person = new Person("person-" + i, i);
