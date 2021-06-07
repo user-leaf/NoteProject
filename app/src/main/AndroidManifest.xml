@@ -37,6 +37,21 @@
         <activity android:name=".arouter.ARouterActivity">
 
         </activity>
+        <activity android:name=".deeplink.DeeplinkActivity" />
+        <activity
+            android:name=".deeplink.simple_use.GoalActivity"
+            android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="share"
+                    android:scheme="cc" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

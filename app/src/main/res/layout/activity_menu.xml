@@ -32,11 +32,13 @@
         android:text="ARouter的使用" />
 
     <TextView
+        android:id="@+id/tvDeeplink"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@android:color/holo_blue_light"
         android:gravity="center"
         android:minHeight="50dp"
+        android:text="deeplink"
         />
 
 </LinearLayout>

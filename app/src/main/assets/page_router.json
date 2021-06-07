@@ -1,0 +1,26 @@
+[
+  {
+    "url": "sign-in.html",
+    "key": "",
+    "activity": "LoginActivity",
+    "fragment": "LoginFragment",
+    "modal": true,
+    "title": ""
+  },
+  {
+    "url": "real-money.html",
+    "key": "",
+    "activity": "LoginActivity",
+    "fragment": "RegisterFragment",
+    "modal": true,
+    "title": ""
+  },
+  {
+    "url": "sign-up.html",
+    "key": "",
+    "activity": "LoginActivity",
+    "fragment": "RegisterFragment",
+    "modal": true,
+    "title": ""
+  }
+]

@@ -8,10 +8,10 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.alibaba.android.arouter.facade.Postcard;
-import com.alibaba.android.arouter.facade.callback.NavCallback;
 import com.alibaba.android.arouter.facade.callback.NavigationCallback;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.sesame.noteproject.arouter.VRouterPath;
+import com.sesame.noteproject.deeplink.DeeplinkActivity;
 import com.sesame.noteproject.merge.MergeActivity;
 import com.sesame.noteproject.test_company.TitleActivity;
 
@@ -25,10 +25,9 @@ public class MenuActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
         ButterKnife.bind(this);
-
     }
 
-    @OnClick({R.id.tvMerge, R.id.tvTitleBar, R.id.tvARouter})
+    @OnClick({R.id.tvMerge, R.id.tvTitleBar, R.id.tvARouter, R.id.tvDeeplink})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.tvMerge:
@@ -62,6 +61,9 @@ public class MenuActivity extends AppCompatActivity {
                                 runOnUiThread(() -> Toast.makeText(MenuActivity.this, "onInterrupt", Toast.LENGTH_SHORT).show());
                             }
                         });
+                break;
+            case R.id.tvDeeplink:
+                DeeplinkActivity.startActivity(this);
                 break;
         }
     }
