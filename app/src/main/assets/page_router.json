@@ -22,5 +22,13 @@
     "fragment": "RegisterFragment",
     "modal": true,
     "title": ""
+  },
+  {
+    "url": "deeplink.html",
+    "key": "",
+    "activity": "goal",
+    "fragment": "GoalFragment",
+    "modal": true,
+    "title": ""
   }
 ]

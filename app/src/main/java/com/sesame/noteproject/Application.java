@@ -4,7 +4,6 @@ import com.alibaba.android.arouter.launcher.ARouter;
 
 public class Application extends android.app.Application {
 
-
     @Override
     public void onCreate() {
         super.onCreate();
@@ -13,5 +12,6 @@ public class Application extends android.app.Application {
             ARouter.openDebug();
         }
         ARouter.init(this);
+        DeeplinkManager.getInstance().init(this);
     }
 }
