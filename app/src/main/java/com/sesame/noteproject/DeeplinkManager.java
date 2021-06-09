@@ -8,7 +8,7 @@ import com.alibaba.android.arouter.launcher.ARouter;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.sesame.noteproject.arouter.VRouterPath;
-import com.sesame.noteproject.deeplink.advanced_use.DeeplinkModel;
+import com.sesame.noteproject.deeplink.advanced.DeeplinkModel;
 
 import java.io.IOException;
 import java.io.InputStream;

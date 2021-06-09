@@ -1,4 +1,4 @@
-package com.sesame.noteproject.deeplink.advanced_use;
+package com.sesame.noteproject.deeplink.advanced;
 
 public class DeeplinkModel {
     public String url;
