@@ -25,13 +25,14 @@ public class GoalActivity extends AppCompatActivity {
         Intent intent = getIntent();
         if (intent != null) {
             Uri uri = intent.getData();
-            if (uri == null){
+            if (uri == null) {
                 return;
             }
-            String host = uri.getHost();
+//            uri = Uri.parse("cc://hostname.com/abc");
             String scheme = uri.getScheme();
-            if ("share".equals(host)) {
-                tv.setText("host:" + host + "\nscheme:" + scheme + "\n值：" + uri.getPathSegments());
+            String host = uri.getHost();
+            if ("cc".equals(scheme)) {
+                tv.setText(uri.toString() + "\nscheme:" + scheme + "\nhost:" + host + "\n值：" + uri.getPathSegments());
             }
         }
     }
