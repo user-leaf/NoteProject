@@ -53,6 +53,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".anim.AnimActivity" />
+        <activity android:name=".refresh.RefreshActivity" />
     </application>
 
 </manifest>

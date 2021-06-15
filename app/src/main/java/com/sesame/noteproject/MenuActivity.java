@@ -14,6 +14,7 @@ import com.sesame.noteproject.anim.AnimActivity;
 import com.sesame.noteproject.arouter.VRouterPath;
 import com.sesame.noteproject.deeplink.DeeplinkActivity;
 import com.sesame.noteproject.merge.MergeActivity;
+import com.sesame.noteproject.refresh.RefreshActivity;
 import com.sesame.noteproject.test_company.TitleActivity;
 
 import butterknife.ButterKnife;
@@ -28,7 +29,7 @@ public class MenuActivity extends AppCompatActivity {
         ButterKnife.bind(this);
     }
 
-    @OnClick({R.id.tvMerge, R.id.tvTitleBar, R.id.tvARouter, R.id.tvDeeplink, R.id.tvAnim})
+    @OnClick({R.id.tvMerge, R.id.tvTitleBar, R.id.tvARouter, R.id.tvDeeplink, R.id.tvAnim, R.id.tvRefresh})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.tvMerge:
@@ -68,6 +69,9 @@ public class MenuActivity extends AppCompatActivity {
                 break;
             case R.id.tvAnim:
                 AnimActivity.startActivity(this);
+                break;
+            case R.id.tvRefresh:
+                RefreshActivity.startActivity(this);
                 break;
         }
     }

@@ -51,11 +51,13 @@
         android:text="动画" />
 
     <TextView
+        android:id="@+id/tvRefresh"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@android:color/holo_blue_light"
         android:gravity="center"
         android:minHeight="50dp"
+        android:text="smartRefresh"
         />
 
 
