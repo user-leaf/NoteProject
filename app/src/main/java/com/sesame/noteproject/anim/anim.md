@@ -20,7 +20,7 @@
 对象动画（ObjectAnimator）与值动画（ValueAnimator）：
 值动画是通过控制值的变化，之后 手动赋值给对象的属性，从而实现动画。
 
-```
+``` java
  final ImageView imageView = findViewById(R.id.imageView);
  ValueAnimator anim = ValueAnimator.ofFloat(0f, 1f);
  anim.setDuration(5000);
@@ -36,12 +36,12 @@
 ```
 
 #### 二、理解插值器和估值器
-**TimeInterpolator（时间插值器）的作用是根据时间流逝的百分比来计算出当前属性值改变的百分比。**系统预设的是LinearInterpolator(线性插值器，匀速动画)，AccelerateDecelerateInterpolator（加速减速插值器：两头慢中间快）和DecelerateInterpolator（减速插值器）。
+**TimeInterpolator（时间插值器）的作用是根据时间流逝的百分比来计算出当前属性值改变的百分比。** 系统预设的是LinearInterpolator(线性插值器，匀速动画)，AccelerateDecelerateInterpolator（加速减速插值器：两头慢中间快）和DecelerateInterpolator（减速插值器）。
 
-**TypeEvaluator（类型估值算法），也叫估值器，它的作用是根据当前属性变化的百分比来计算变化后的属性值。**系统预设了针对整型属性IntEvaluator，浮点型FloatEvaluator，和color颜色值ArgbEvaluator。两者结合能实现非匀速动画。
+**TypeEvaluator（类型估值算法），也叫估值器，它的作用是根据当前属性变化的百分比来计算变化后的属性值。** 系统预设了针对整型属性IntEvaluator，浮点型FloatEvaluator，和color颜色值ArgbEvaluator。两者结合能实现非匀速动画。
 
 #### 三、执行多个动画，用AnimatorSet
 
 引用：
-[1] https://blog.csdn.net/huweiliyi/article/details/105671079
-[2] https://blog.csdn.net/weixin_38244174/article/details/93073950
+- [1] https://blog.csdn.net/huweiliyi/article/details/105671079
+- [2] https://blog.csdn.net/weixin_38244174/article/details/93073950
