@@ -6,4 +6,8 @@
     <string name="refresh_header_pulling">Pull Down To Refresh</string>
     <string name="refresh_header_refreshing">Refreshing…</string>
     <string name="refresh_header_loading">Loading…</string>
+
+    <string name="refresh_item_page_title1">Activity-1</string>
+    <string name="refresh_item_page_title2">Activity-2</string>
+    <string name="refresh_item_page_title3">Activity-3</string>
 </resources>

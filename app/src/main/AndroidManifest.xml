@@ -54,6 +54,7 @@
         </activity>
         <activity android:name=".anim.AnimActivity" />
         <activity android:name=".refresh.RefreshActivity" />
+        <activity android:name=".refresh.views.ItemActivity" />
     </application>
 
 </manifest>
