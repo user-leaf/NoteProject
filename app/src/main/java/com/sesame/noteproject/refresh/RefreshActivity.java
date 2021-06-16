@@ -3,6 +3,7 @@ package com.sesame.noteproject.refresh;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -25,7 +26,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.Arrays;
 
-public class RefreshActivity extends AppCompatActivity {
+public class RefreshActivity extends AppCompatActivity implements BaseQuickAdapter.OnItemClickListener {
 
     private enum Item {
         Aty01(R.string.refresh_item_page_title1, ItemActivity.class),
@@ -61,14 +62,16 @@ public class RefreshActivity extends AppCompatActivity {
 //        mRecyclerView.setItemAnimator(new DefaultItemAnimator());
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mRecyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
-        mRecyclerView.setAdapter(new BaseQuickAdapter<Item, BaseViewHolder>(R.layout.item_refresh_list, Arrays.asList(Item.values())) {
+        BaseQuickAdapter<Item, BaseViewHolder> adapter = new BaseQuickAdapter<Item, BaseViewHolder>(R.layout.item_refresh_list, Arrays.asList(Item.values())) {
             @Override
             protected void convert(@NonNull @NotNull BaseViewHolder helper, Item item) {
                 helper.setText(R.id.text1, item.nameId);
                 helper.setText(R.id.text2, "sub-" + getString(item.nameId));
                 helper.setTextColor(R.id.text2, getResources().getColor(R.color.colorAccent));
             }
-        });
+        };
+        adapter.setOnItemClickListener(this);
+        mRecyclerView.setAdapter(adapter);
     }
 
     private void initRefresh() {
@@ -90,6 +93,13 @@ public class RefreshActivity extends AppCompatActivity {
                 refreshlayout.finishLoadMore(2000/*,false*/);//传入false表示加载失败
             }
         });
+    }
 
+    @Override
+    public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+        Item item = Item.values()[position];
+        Intent intent = new Intent(this, item.clazz);
+        intent.putExtra("param", item.nameId);
+        startActivity(intent);
     }
 }
