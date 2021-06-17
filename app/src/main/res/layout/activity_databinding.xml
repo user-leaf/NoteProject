@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="user"
+            type="com.sesame.noteproject.databinding.User" />
+    </data>
+
+    <!--
+    在xml中，选中根布局，按住Alt+回车，点击“Convert to data binding layout”，
+    就可以生成databinding需要的布局规则(如下图-<layout><data>...</data><你的根布局></layout>)
+    -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{user.name}"
+            android:textSize="50dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{user.psw}"
+            android:textSize="50dp" />
+    </LinearLayout>
+
+</layout>

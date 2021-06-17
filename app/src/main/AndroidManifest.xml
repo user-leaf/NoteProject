@@ -58,6 +58,7 @@
         <activity android:name=".refresh.RefreshActivity" />
         <activity android:name=".refresh.views.ItemActivity" />
         <activity android:name=".websocket.WebSocketActivity" />
+        <activity android:name=".databinding.DatabindingActivity" />
     </application>
 
 </manifest>
