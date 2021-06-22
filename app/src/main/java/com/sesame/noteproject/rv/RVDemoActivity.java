@@ -1,5 +1,7 @@
 package com.sesame.noteproject.rv;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -14,6 +16,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RVDemoActivity extends AppCompatActivity {
+
+    public static void startActivity(Context context){
+        context.startActivity(new Intent(context, RVDemoActivity.class));
+    }
+
     private List<Person> mPersonList = new ArrayList<>();
     private MyAdapter mAdapter;
 
@@ -23,8 +30,8 @@ public class RVDemoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_rv_demo);
 
         RecyclerView recyclerView = findViewById(R.id.recycler_view);
-        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
-        layoutManager.setOrientation(RecyclerView.VERTICAL);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, true);
+//        layoutManager.setOrientation(RecyclerView.VERTICAL);
         recyclerView.setLayoutManager(layoutManager);
         mAdapter = new MyAdapter(this, mPersonList);
         recyclerView.setAdapter(mAdapter);

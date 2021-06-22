@@ -80,5 +80,23 @@
         android:text="DataBinding"
         />
 
+    <TextView
+        android:id="@+id/tvRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/holo_green_light"
+        android:gravity="center"
+        android:minHeight="50dp"
+        android:text="RecyclerView"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/holo_blue_light"
+        android:gravity="center"
+        android:minHeight="50dp"
+        />
+
 
 </LinearLayout>

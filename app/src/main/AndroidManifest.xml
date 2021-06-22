@@ -15,7 +15,7 @@
         <activity android:name=".MainActivity"></activity>
         <activity android:name=".CoordinatorLayoutActivity"></activity>
         <activity android:name=".test.EventTestActivity" />
-        <activity android:name=".rv.RVDemoActivity"></activity>
+        <activity android:name=".rv.RVDemoActivity" />
         <activity android:name=".merge.MergeActivity" />
         <activity
             android:name=".test_company.TitleActivity"
