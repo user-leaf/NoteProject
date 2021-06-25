@@ -12,9 +12,10 @@ import com.alibaba.android.arouter.facade.callback.NavigationCallback;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.sesame.noteproject.anim.AnimActivity;
 import com.sesame.noteproject.arouter.VRouterPath;
+import com.sesame.noteproject.databinding.DatabindingActivity;
 import com.sesame.noteproject.deeplink.DeeplinkActivity;
 import com.sesame.noteproject.merge.MergeActivity;
-import com.sesame.noteproject.databinding.DatabindingActivity;
+import com.sesame.noteproject.nulltest.NullTestActivity;
 import com.sesame.noteproject.refresh.RefreshActivity;
 import com.sesame.noteproject.rv.RVDemoActivity;
 import com.sesame.noteproject.test_company.TitleActivity;
@@ -32,7 +33,7 @@ public class MenuActivity extends AppCompatActivity {
         ButterKnife.bind(this);
     }
 
-    @OnClick({R.id.tvMerge, R.id.tvTitleBar, R.id.tvARouter, R.id.tvDeeplink, R.id.tvAnim, R.id.tvRefresh, R.id.tvWebSocket, R.id.tvDataBinding, R.id.tvRecyclerView})
+    @OnClick({R.id.tvMerge, R.id.tvTitleBar, R.id.tvARouter, R.id.tvDeeplink, R.id.tvAnim, R.id.tvRefresh, R.id.tvWebSocket, R.id.tvDataBinding, R.id.tvRecyclerView, R.id.tvKotlinNull})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.tvMerge:
@@ -84,6 +85,9 @@ public class MenuActivity extends AppCompatActivity {
                 break;
             case R.id.tvRecyclerView:
                 RVDemoActivity.startActivity(this);
+                break;
+            case R.id.tvKotlinNull:
+                NullTestActivity.Companion.startActivity(this);
                 break;
         }
     }
