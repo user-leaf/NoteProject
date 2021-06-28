@@ -59,6 +59,7 @@
         <activity android:name=".refresh.views.ItemActivity" />
         <activity android:name=".websocket.WebSocketActivity" />
         <activity android:name=".databinding.DatabindingActivity" />
+        <activity android:name=".vm.VmActivity" />
     </application>
 
 </manifest>

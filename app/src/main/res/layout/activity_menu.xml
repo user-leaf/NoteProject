@@ -1,104 +1,119 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/tvMerge"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@android:color/holo_green_light"
-        android:gravity="center"
-        android:minHeight="50dp"
-        android:text="merge的使用" />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/tvTitleBar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@android:color/holo_blue_light"
-        android:gravity="center"
-        android:minHeight="50dp"
-        android:text="定义一个ToolBar放到原先ActionBar的位置上，可以在主页面中使用" />
+        <TextView
+            android:id="@+id/tvMerge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/holo_green_light"
+            android:gravity="center"
+            android:minHeight="50dp"
+            android:text="merge的使用" />
 
-    <TextView
-        android:id="@+id/tvARouter"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@android:color/holo_green_light"
-        android:gravity="center"
-        android:minHeight="50dp"
-        android:text="ARouter的使用" />
+        <TextView
+            android:id="@+id/tvTitleBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/holo_blue_light"
+            android:gravity="center"
+            android:minHeight="50dp"
+            android:text="定义一个ToolBar放到原先ActionBar的位置上，可以在主页面中使用" />
 
-    <TextView
-        android:id="@+id/tvDeeplink"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@android:color/holo_blue_light"
-        android:gravity="center"
-        android:minHeight="50dp"
-        android:text="deeplink"
-        />
+        <TextView
+            android:id="@+id/tvARouter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/holo_green_light"
+            android:gravity="center"
+            android:minHeight="50dp"
+            android:text="ARouter的使用" />
 
-    <TextView
-        android:id="@+id/tvAnim"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@android:color/holo_green_light"
-        android:gravity="center"
-        android:minHeight="50dp"
-        android:text="动画" />
+        <TextView
+            android:id="@+id/tvDeeplink"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/holo_blue_light"
+            android:gravity="center"
+            android:minHeight="50dp"
+            android:text="deeplink" />
 
-    <TextView
-        android:id="@+id/tvRefresh"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@android:color/holo_blue_light"
-        android:gravity="center"
-        android:minHeight="50dp"
-        android:text="smartRefresh"
-        />
+        <TextView
+            android:id="@+id/tvAnim"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/holo_green_light"
+            android:gravity="center"
+            android:minHeight="50dp"
+            android:text="动画" />
 
-    <TextView
-        android:id="@+id/tvWebSocket"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@android:color/holo_green_light"
-        android:gravity="center"
-        android:minHeight="50dp"
-        android:text="WebSocket"
-        />
+        <TextView
+            android:id="@+id/tvRefresh"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/holo_blue_light"
+            android:gravity="center"
+            android:minHeight="50dp"
+            android:text="smartRefresh" />
 
-    <TextView
-        android:id="@+id/tvDataBinding"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@android:color/holo_blue_light"
-        android:gravity="center"
-        android:minHeight="50dp"
-        android:text="DataBinding"
-        />
+        <TextView
+            android:id="@+id/tvWebSocket"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/holo_green_light"
+            android:gravity="center"
+            android:minHeight="50dp"
+            android:text="WebSocket" />
 
-    <TextView
-        android:id="@+id/tvRecyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@android:color/holo_green_light"
-        android:gravity="center"
-        android:minHeight="50dp"
-        android:text="RecyclerView"
-        />
+        <TextView
+            android:id="@+id/tvDataBinding"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/holo_blue_light"
+            android:gravity="center"
+            android:minHeight="50dp"
+            android:text="DataBinding" />
 
-    <TextView
-        android:id="@+id/tvKotlinNull"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@android:color/holo_blue_light"
-        android:gravity="center"
-        android:minHeight="50dp"
-        android:text="Kotlin null"
-        />
+        <TextView
+            android:id="@+id/tvRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/holo_green_light"
+            android:gravity="center"
+            android:minHeight="50dp"
+            android:text="RecyclerView" />
+
+        <TextView
+            android:id="@+id/tvKotlinNull"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/holo_blue_light"
+            android:gravity="center"
+            android:minHeight="50dp"
+            android:text="Kotlin null" />
+
+        <TextView
+            android:id="@+id/tvViewModel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/holo_green_light"
+            android:gravity="center"
+            android:minHeight="50dp"
+            android:text="ViewModel" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/holo_blue_light"
+            android:gravity="center"
+            android:minHeight="50dp" />
 
 
-</LinearLayout>
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

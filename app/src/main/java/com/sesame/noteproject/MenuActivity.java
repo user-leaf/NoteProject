@@ -19,6 +19,7 @@ import com.sesame.noteproject.nulltest.NullTestActivity;
 import com.sesame.noteproject.refresh.RefreshActivity;
 import com.sesame.noteproject.rv.RVDemoActivity;
 import com.sesame.noteproject.test_company.TitleActivity;
+import com.sesame.noteproject.vm.VmActivity;
 import com.sesame.noteproject.websocket.WebSocketActivity;
 
 import butterknife.ButterKnife;
@@ -33,7 +34,7 @@ public class MenuActivity extends AppCompatActivity {
         ButterKnife.bind(this);
     }
 
-    @OnClick({R.id.tvMerge, R.id.tvTitleBar, R.id.tvARouter, R.id.tvDeeplink, R.id.tvAnim, R.id.tvRefresh, R.id.tvWebSocket, R.id.tvDataBinding, R.id.tvRecyclerView, R.id.tvKotlinNull})
+    @OnClick({R.id.tvMerge, R.id.tvTitleBar, R.id.tvARouter, R.id.tvDeeplink, R.id.tvAnim, R.id.tvRefresh, R.id.tvWebSocket, R.id.tvDataBinding, R.id.tvRecyclerView, R.id.tvKotlinNull, R.id.tvViewModel})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.tvMerge:
@@ -88,6 +89,9 @@ public class MenuActivity extends AppCompatActivity {
                 break;
             case R.id.tvKotlinNull:
                 NullTestActivity.Companion.startActivity(this);
+                break;
+            case R.id.tvViewModel:
+                VmActivity.startActivity(this);
                 break;
         }
     }
