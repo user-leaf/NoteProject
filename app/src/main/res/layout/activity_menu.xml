@@ -108,11 +108,14 @@
             android:text="ViewModel" />
 
         <TextView
+            android:id="@+id/tvLiveData"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@android:color/holo_blue_light"
             android:gravity="center"
-            android:minHeight="50dp" />
+            android:minHeight="50dp"
+            android:text="LiveData"
+            />
 
 
     </LinearLayout>
