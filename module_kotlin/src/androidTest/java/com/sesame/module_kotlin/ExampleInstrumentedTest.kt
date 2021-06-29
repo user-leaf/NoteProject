@@ -1,4 +1,4 @@
-package com.sesame.kotlinmodule
+package com.sesame.module_kotlin
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

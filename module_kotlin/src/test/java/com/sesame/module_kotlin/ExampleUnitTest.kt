@@ -1,4 +1,4 @@
-package com.sesame.kotlinmodule
+package com.sesame.module_kotlin
 
 import org.junit.Test
 
