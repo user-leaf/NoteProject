@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
+import com.sesame.noteproject.deeplink.DeeplinkActivity;
 import com.sesame.noteproject.merge.MergeActivity;
 import com.sesame.noteproject.test_company.TitleActivity;
 
@@ -26,27 +27,24 @@ public class MenuRvActivity extends AppCompatActivity {
     private enum MenuItem {
         Merge("Merge", MergeActivity.class),
         Title("Title", TitleActivity.class),
-
+        Deeplink("Deeplink", DeeplinkActivity.class),
         ;
 
         private String title;
         private Class clazz;
-        private static List<String> titles = new ArrayList<>();
+        private static final List<String> titles = new ArrayList<>();
 
         MenuItem(String title, Class clazz) {
             this.title = title;
             this.clazz = clazz;
         }
 
-        public static List<String> getTitles() {
-            titles.clear();
+        static {
             for (MenuItem item : MenuItem.values()) {
                 titles.add(item.title);
             }
-            return titles;
         }
     }
-
 
     @Override
     protected void onCreate(@Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
@@ -59,7 +57,7 @@ public class MenuRvActivity extends AppCompatActivity {
         RecyclerView rv = findViewById(R.id.rvRoot);
         rv.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL, false));
         rv.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
-        List<String> data = MenuItem.getTitles();
+        List<String> data = MenuItem.titles;
         BaseQuickAdapter<String, BaseViewHolder> adapter = new BaseQuickAdapter<String, BaseViewHolder>(R.layout.item_menu_rv, data) {
 
             @Override
