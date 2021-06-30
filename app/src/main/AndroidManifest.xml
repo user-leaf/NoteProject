@@ -62,6 +62,7 @@
         <activity android:name=".vm.VmActivity" />
         <activity android:name=".vm_livedata.TimerWithLiveDataActivity" />
         <activity android:name=".MenuRvActivity" />
+        <activity android:name=".vm_livedata.TimerLiveDataActivity" />
     </application>
 
 </manifest>

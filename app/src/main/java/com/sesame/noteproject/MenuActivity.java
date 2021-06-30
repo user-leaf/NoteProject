@@ -1,5 +1,6 @@
 package com.sesame.noteproject;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -20,6 +21,7 @@ import com.sesame.noteproject.refresh.RefreshActivity;
 import com.sesame.noteproject.rv.RVDemoActivity;
 import com.sesame.noteproject.test_company.TitleActivity;
 import com.sesame.noteproject.vm.VmActivity;
+import com.sesame.noteproject.vm_livedata.TimerLiveDataActivity;
 import com.sesame.noteproject.vm_livedata.TimerWithLiveDataActivity;
 import com.sesame.noteproject.websocket.WebSocketActivity;
 
@@ -35,7 +37,7 @@ public class MenuActivity extends AppCompatActivity {
         ButterKnife.bind(this);
     }
 
-    @OnClick({R.id.tvMerge, R.id.tvTitleBar, R.id.tvARouter, R.id.tvDeeplink, R.id.tvAnim, R.id.tvRefresh, R.id.tvWebSocket, R.id.tvDataBinding, R.id.tvRecyclerView, R.id.tvKotlinNull, R.id.tvViewModel, R.id.tvLiveData})
+    @OnClick({R.id.tvMerge, R.id.tvTitleBar, R.id.tvARouter, R.id.tvDeeplink, R.id.tvAnim, R.id.tvRefresh, R.id.tvWebSocket, R.id.tvDataBinding, R.id.tvRecyclerView, R.id.tvKotlinNull, R.id.tvViewModel, R.id.tvLiveData, R.id.tvLiveDataKt})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.tvMerge:
@@ -96,6 +98,9 @@ public class MenuActivity extends AppCompatActivity {
                 break;
             case R.id.tvLiveData:
                 TimerWithLiveDataActivity.startActivity(this);
+                break;
+            case R.id.tvLiveDataKt:
+                startActivity(new Intent(this, TimerLiveDataActivity.class));
                 break;
         }
     }
