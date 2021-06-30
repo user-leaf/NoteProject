@@ -5,6 +5,12 @@
     android:orientation="vertical"
     >
 
+    <TextView
+        android:id="@+id/tvShow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+
     <Button
         android:id="@+id/btnStart"
         android:layout_width="wrap_content"
@@ -19,9 +25,11 @@
         android:text="邮政编码"
         />
 
-    <TextView
-        android:id="@+id/tvShow"
+    <Button
+        android:id="@+id/btnCodeViaCoroutine"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="邮政编码（协程）"
         />
+
 </LinearLayout>

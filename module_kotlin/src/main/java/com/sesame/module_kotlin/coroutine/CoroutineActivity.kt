@@ -30,6 +30,39 @@ class CoroutineActivity : AppCompatActivity() {
 
 
         queryPostCode()
+
+        queryPostCodeWithCoroutine()
+
+        useInProject()
+    }
+
+    private fun useInProject() {
+        // 在项目中创建协程
+        val coroutineScope = CoroutineScope(Dispatchers.Main)
+        coroutineScope.launch {
+
+        }
+    }
+
+    private fun queryPostCodeWithCoroutine() {
+        btnCodeViaCoroutine.setOnClickListener {
+            GlobalScope.launch(Dispatchers.Main) {
+                /*
+                第1步，在ApiService中新增一个函数queryPostCode，声明为挂起函数，类型不需要添加Call
+                 */
+                val apiService = RetrofitUtils.getRetrofit("").create(ApiService::class.java)
+                try {
+                    /*
+                    没有回调，因为这是一个挂起函数。当运行到挂起函数的时候，协程会处于等待状态，等返回结果后，主动切回主线程，执行下面的方法
+                     */
+                    val result =
+                        apiService.queryPostCode("276400", "64df29265bcad4df38525600664d3419")
+                    tvShow.text = "协程查询：" + result.result.list[0].district
+                } catch (e: Exception) {
+                    tvShow.text = "协程查询：" + e.toString()
+                }
+            }
+        }
     }
 
     private fun queryPostCode() {
@@ -44,11 +77,14 @@ class CoroutineActivity : AppCompatActivity() {
                     ) {
                         if (response.isSuccessful) {
                             val model = response.body()
-                            tvShow.text = model!!.result.list[0].city
+                            tvShow.text = "276400: " + model!!.result.list[0].city
                         }
                     }
 
-                    override fun onFailure(call: Call<BaseRequest<BasePageInfo<PostCodeModel>>>, t: Throwable) {
+                    override fun onFailure(
+                        call: Call<BaseRequest<BasePageInfo<PostCodeModel>>>,
+                        t: Throwable
+                    ) {
                         tvShow.text = t.message
                     }
 

@@ -14,4 +14,11 @@ interface ApiService {
         @Query("postcode") postcode: String,
         @Query("key") key: String
     ): Call<BaseRequest<BasePageInfo<PostCodeModel>>>
+
+    @GET("postcode/query")
+    suspend fun queryPostCode(
+        @Query("postcode") postcode: String,
+        @Query("key") key: String
+    ): BaseRequest<BasePageInfo<PostCodeModel>>
+
 }
