@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.sesame.module_kotlin.coroutine.CoroutineActivity
 import com.sesame.module_kotlin.learning.KotlinLearningActivity
 import kotlinx.android.synthetic.main.activity_menu.*
 
