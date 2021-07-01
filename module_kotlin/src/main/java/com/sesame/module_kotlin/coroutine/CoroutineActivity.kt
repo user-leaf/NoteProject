@@ -14,6 +14,7 @@ import kotlinx.coroutines.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import kotlin.system.measureTimeMillis
 
 class CoroutineActivity : AppCompatActivity() {
 
@@ -29,11 +30,15 @@ class CoroutineActivity : AppCompatActivity() {
 //        initFun2()
 
 
-        queryPostCode()
+        btnCode.setOnClickListener {
+            queryPostCode()
+        }
 
-        queryPostCodeWithCoroutine()
+        btnCodeViaCoroutine.setOnClickListener {
+            queryPostCodeWithCoroutine()
+        }
 
-        useInProject()
+//        useInProject()
 
         btnSwitch.setOnClickListener {
             // 自动线程切换
@@ -44,10 +49,48 @@ class CoroutineActivity : AppCompatActivity() {
             }
         }
 
-        // 有返回值
-        GlobalScope.launch {
-            println("@@@ getRetResult(): " + getRetResult())
+//        // 有返回值
+//        GlobalScope.launch {
+//            println("@@@ getRetResult(): " + getRetResult())
+//        }
+
+        btnMulti.setOnClickListener {
+            GlobalScope.launch {
+                multiRun()
+            }
         }
+
+    }
+
+    // 使用async和await实现协程高效并发
+    private suspend fun multiRun(){
+        runBlocking {
+            val time = measureTimeMillis {
+                val v1 = intValue1()
+                val v2 = intValue2()
+                println("@@@1结果是${v1 + v2}")
+            }
+            println("@@@1运行时间是$time") // 3002 顺序执行的
+
+            val time2 = measureTimeMillis {
+                // async的返回值Deferred继承自Job，因此Job中有的方法，Deferred也有，此外还有await()方法
+                // Deferred就是带返回结果的Job
+                val v1 = async { intValue1() }
+                val v2 = async { intValue2() }
+                println("@@@2结果是${v1.await() + v2.await()}")
+            }
+            println("@@@2运行时间是$time2") // 2003 并发执行的
+        }
+    }
+
+    private suspend fun intValue1(): Int {
+        delay(1000)
+        return 1
+    }
+
+    private suspend fun intValue2(): Int {
+        delay(2000)
+        return 2
     }
 
     private suspend fun getRetResult(): String = withContext(Dispatchers.IO) {
@@ -84,7 +127,6 @@ class CoroutineActivity : AppCompatActivity() {
     }
 
     private fun queryPostCodeWithCoroutine() {
-        btnCodeViaCoroutine.setOnClickListener {
             GlobalScope.launch(Dispatchers.Main) {
                 /*
                 第1步，在ApiService中新增一个函数queryPostCode，声明为挂起函数，类型不需要添加Call
@@ -101,34 +143,31 @@ class CoroutineActivity : AppCompatActivity() {
                     tvShow.text = "协程查询：" + e.toString()
                 }
             }
-        }
+
     }
 
     private fun queryPostCode() {
         val apiService = RetrofitUtils.getRetrofit("").create(ApiService::class.java)
-
-        btnCode.setOnClickListener {
-            apiService.getPostCode("276400", "64df29265bcad4df38525600664d3419")
-                .enqueue(object : Callback<BaseRequest<BasePageInfo<PostCodeModel>>> {
-                    override fun onResponse(
-                        call: Call<BaseRequest<BasePageInfo<PostCodeModel>>>,
-                        response: Response<BaseRequest<BasePageInfo<PostCodeModel>>>
-                    ) {
-                        if (response.isSuccessful) {
-                            val model = response.body()
-                            tvShow.text = "276400: " + model!!.result.list[0].city
-                        }
+        apiService.getPostCode("276400", "64df29265bcad4df38525600664d3419")
+            .enqueue(object : Callback<BaseRequest<BasePageInfo<PostCodeModel>>> {
+                override fun onResponse(
+                    call: Call<BaseRequest<BasePageInfo<PostCodeModel>>>,
+                    response: Response<BaseRequest<BasePageInfo<PostCodeModel>>>
+                ) {
+                    if (response.isSuccessful) {
+                        val model = response.body()
+                        tvShow.text = "276400: " + model!!.result.list[0].city
                     }
+                }
 
-                    override fun onFailure(
-                        call: Call<BaseRequest<BasePageInfo<PostCodeModel>>>,
-                        t: Throwable
-                    ) {
-                        tvShow.text = t.message
-                    }
+                override fun onFailure(
+                    call: Call<BaseRequest<BasePageInfo<PostCodeModel>>>,
+                    t: Throwable
+                ) {
+                    tvShow.text = t.message
+                }
 
-                })
-        }
+            })
     }
 
     private fun initFun2() {

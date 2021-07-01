@@ -39,4 +39,12 @@
         android:text="切换线程"
         />
 
+    <Button
+        android:id="@+id/btnMulti"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="并发"
+        />
+
+
 </LinearLayout>
