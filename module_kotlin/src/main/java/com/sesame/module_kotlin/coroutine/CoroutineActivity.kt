@@ -34,13 +34,52 @@ class CoroutineActivity : AppCompatActivity() {
         queryPostCodeWithCoroutine()
 
         useInProject()
+
+        btnSwitch.setOnClickListener {
+            // 自动线程切换
+            GlobalScope.launch(context = Dispatchers.Main) {
+                println("@@@ GlobalScope " + Thread.currentThread().name)
+                val todo = suspendTodo()
+                println("@@@ GlobalScope " + Thread.currentThread().name + ", todo: " + todo)
+            }
+        }
+
+        // 有返回值
+        GlobalScope.launch {
+            println("@@@ getRetResult(): " + getRetResult())
+        }
+    }
+
+    private suspend fun getRetResult(): String = withContext(Dispatchers.IO) {
+        val loadQuotation = async {
+            "abc"
+        }
+        println("@@@ load: " + loadQuotation.await())
+
+        "abc123"
+    }
+
+    private suspend fun suspendTodo(): String {
+        /*
+        supend关键字并不启到协程挂起/切换线程的作用。
+        真要挂起协程还需要在挂起函数里去调用另一个挂起函数【需要是协程自带的、
+        内部实现了协程挂起代码的。或它的内部直接或者间接调用了某一个挂起函数，让它去真正的挂起。】
+         */
+        println("@@@ suspendTodo outer: " + Thread.currentThread().name)
+        val result = withContext(Dispatchers.IO) {
+            println("@@@ suspendTodo inner: " + Thread.currentThread().name)
+            "abc"
+        }
+        return result
     }
 
     private fun useInProject() {
         // 在项目中创建协程
         val coroutineScope = CoroutineScope(Dispatchers.Main)
         coroutineScope.launch {
-
+            println("@@@ useInProject before suspend: " + Thread.currentThread().name)
+            suspendTodo()
+            println("@@@ useInProject after suspend: " + Thread.currentThread().name)
         }
     }
 
