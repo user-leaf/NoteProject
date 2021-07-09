@@ -19,7 +19,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".coroutine.CoroutineActivity" />
-        <activity android:name=".learning.KotlinLearningActivity" />
+        <activity android:name=".learning.KotlinStandardFunctionActivity" />
     </application>
 
 </manifest>

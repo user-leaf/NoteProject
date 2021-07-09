@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+    <TextView
+        android:id="@+id/tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+
+    <Button
+        android:id="@+id/btnLet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="let"
+        android:textAllCaps="false"
+        />
+
+    <Button
+        android:id="@+id/btnWith"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="with"
+        android:textAllCaps="false"
+        />
+
+    <Button
+        android:id="@+id/btnRun"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="run"
+        android:textAllCaps="false"
+        />
+
+    <Button
+        android:id="@+id/btnApply"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="apply"
+        android:textAllCaps="false"
+        />
+
+    <Button
+        android:id="@+id/btnAlso"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="also"
+        android:textAllCaps="false"
+        />
+
+</LinearLayout>
