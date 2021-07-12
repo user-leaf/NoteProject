@@ -12,7 +12,7 @@ public class TimerWithLiveDataViewModel extends ViewModel {
     private MutableLiveData<Integer> currentSecond = new MutableLiveData<>();
     private Timer timer;
 
-    public LiveData<Integer> getCurrentSecond() {
+    public MutableLiveData<Integer> getCurrentSecond() {
 //        if (currentSecond == null) {
 //            currentSecond = new MutableLiveData<>();
 //        }

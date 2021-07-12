@@ -8,13 +8,15 @@ import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.sesame.noteproject.R;
 
 public class TimerWithLiveDataActivity extends AppCompatActivity {
+
+    private TimerWithLiveDataViewModel mTimerVM;
+    private TextView mTvShow;
 
     public static void startActivity(Context context){
         context.startActivity(new Intent(context, TimerWithLiveDataActivity.class));
@@ -24,17 +26,23 @@ public class TimerWithLiveDataActivity extends AppCompatActivity {
     protected void onCreate(@Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_timer_with_live_data);
+        initView();
+        initData();
+    }
 
-        TextView tvShow = findViewById(R.id.tvShow);
-        TimerWithLiveDataViewModel viewModel = ViewModelProviders.of(this).get(TimerWithLiveDataViewModel.class);
-        MutableLiveData<Integer> liveData = (MutableLiveData<Integer>) viewModel.getCurrentSecond();
-        liveData.observe(this, new Observer<Integer>() {
+    private void initView() {
+        mTvShow = findViewById(R.id.tvShow);
+        mTimerVM = ViewModelProviders.of(this).get(TimerWithLiveDataViewModel.class);
+    }
+
+    private void initData() {
+        mTimerVM.getCurrentSecond().observe(this, new Observer<Integer>() {
             @Override
             public void onChanged(Integer second) {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        tvShow.setText("ViewModel&LiveData Time: " + second);
+                        mTvShow.setText("ViewModel&LiveData Time: " + second);
                     }
                 });
             }
@@ -43,10 +51,10 @@ public class TimerWithLiveDataActivity extends AppCompatActivity {
         findViewById(R.id.btnResetTime).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                liveData.setValue(0);
+                mTimerVM.getCurrentSecond().postValue(0);
             }
         });
 
-        viewModel.startTiming();
+        mTimerVM.startTiming();
     }
 }
