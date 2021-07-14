@@ -38,6 +38,7 @@ class CoroutineActivity : AppCompatActivity() {
             queryPostCodeWithCoroutine()
         }
 
+
 //        useInProject()
 
         btnSwitch.setOnClickListener {
@@ -104,7 +105,7 @@ class CoroutineActivity : AppCompatActivity() {
 
     private suspend fun suspendTodo(): String {
         /*
-        supend关键字并不启到协程挂起/切换线程的作用。
+        suspend关键字并不起到协程挂起/切换线程的作用。
         真要挂起协程还需要在挂起函数里去调用另一个挂起函数【需要是协程自带的、
         内部实现了协程挂起代码的。或它的内部直接或者间接调用了某一个挂起函数，让它去真正的挂起。】
          */
@@ -140,7 +141,7 @@ class CoroutineActivity : AppCompatActivity() {
                         apiService.queryPostCode("276400", "64df29265bcad4df38525600664d3419")
                     tvShow.text = "协程查询：" + result.result.list[0].district
                 } catch (e: Exception) {
-                    tvShow.text = "协程查询：" + e.toString()
+                    tvShow.text = "协程查询：$e"
                 }
             }
 
