@@ -6,6 +6,7 @@
 
 > 具体使用方法：CoordinatorLayout 作为最外层容器，AppBarLayout 作为第一个子 view，还包含一个 NestedScrollView 作为一起滑动的控件，CollapsingToolbarLayout 嵌套在 AppBarLayout 里，AppBarLayout 里面又嵌套 ImageView 和 Toolbar。
 > https://blog.csdn.net/smileiam/article/details/61643006
+> https://www.jianshu.com/p/eec5a397ce79
 
 ```
 CoordinatorLayout{

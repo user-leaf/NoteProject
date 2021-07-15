@@ -2,3 +2,4 @@ include ':app'
 rootProject.name = "NoteProject"
 include ':module_kotlin'
 include ':mypuremusic'
+include ':module_base'
