@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--整个布局交给DataBinding来管理-->
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!--和类交互-->
+    <data>
+        <variable
+            name="vm"
+            type="com.sesame.noteproject.callphone.CallPhoneVm" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center"
+            android:textSize="20dp"
+            android:text="@{vm.phoneInfo}"
+            android:textStyle="bold"
+            android:layout_marginTop="200dp"
+            android:background="@android:color/holo_orange_light"
+            />
+
+        <RelativeLayout
+            android:id="@+id/rlPhone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true">
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:stretchColumns="0,1,2">
+
+                <TableRow>
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="@{()-> vm.appendNum(String.valueOf(1))}"
+                        android:text="1" />
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="@{()-> vm.appendNum(String.valueOf(2))}"
+                        android:text="2" />
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="@{()-> vm.appendNum(String.valueOf(3))}"
+                        android:text="3" />
+
+                </TableRow>
+
+                <TableRow>
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="@{()-> vm.appendNum(String.valueOf(4))}"
+                        android:text="4" />
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="@{()-> vm.appendNum(String.valueOf(5))}"
+                        android:text="5" />
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="@{()-> vm.appendNum(String.valueOf(6))}"
+                        android:text="6" />
+
+                </TableRow>
+
+                <TableRow>
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="@{()-> vm.appendNum(String.valueOf(7))}"
+                        android:text="7" />
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="@{()-> vm.appendNum(String.valueOf(8))}"
+                        android:text="8" />
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="@{()-> vm.appendNum(String.valueOf(9))}"
+                        android:text="9" />
+
+                </TableRow>
+
+                <TableRow>
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="@{()->vm.appendNum(@string/phone_xing)}"
+                        android:text="@string/phone_xing" />
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="@{()->vm.appendNum(String.valueOf(0))}"
+                        android:text="0" />
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="@{()->vm.appendNum(@string/phone_jing)}"
+                        android:text="@string/phone_jing" />
+
+                </TableRow>
+
+                <TableRow>
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="@{()->vm.clear()}"
+                        android:text="clear" />
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="@{()->vm.call()}"
+                        android:text="call" />
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="@{()->vm.backspace()}"
+                        android:text="backspace" />
+
+                </TableRow>
+
+            </TableLayout>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+</layout>
