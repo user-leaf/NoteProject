@@ -35,6 +35,6 @@ public class CallPhoneActivity extends AppCompatActivity {
         mBinding.setVm(mCallPhoneVm);
 
         // 建立感应
-        mBinding.setLifecycleOwner(this); //如果不写这句，数据不会被观察到
+        mBinding.setLifecycleOwner(this); //如果不写这句，数据不会被观察到 // 设置其生命周期
     }
 }
