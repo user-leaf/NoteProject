@@ -23,6 +23,7 @@
         <activity android:name=".learning.KotlinStandardFunctionActivity" />
         <activity android:name=".jetpack.lifecycle.LifecycleActivity" />
         <activity android:name=".jetpack.viewmodel.VmDemoActivity" />
+        <activity android:name="com.sesame.module_kotlin.jetpack.viewmodel.sharedata.SeekBarActivity" />
 
         <service android:name=".jetpack.lifecycle.service.MyService" />
     </application>
