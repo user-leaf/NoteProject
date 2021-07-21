@@ -12,6 +12,7 @@ class VmDemoActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_vm_demo)
 
+        // 【我】获取ViewModel实例
         val timerVm =
             ViewModelProvider(
                 this,
