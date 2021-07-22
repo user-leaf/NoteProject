@@ -5,6 +5,10 @@
         <variable
             name="book"
             type="com.sesame.module_kotlin.jetpack.databinding.BookInfo" />
+
+        <variable
+            name="EventHandler"
+            type="com.sesame.module_kotlin.jetpack.databinding.EventHandleListener" />
     </data>
 
     <androidx.appcompat.widget.LinearLayoutCompat
@@ -32,6 +36,12 @@
             android:text="@{book.rating}"
             />
 
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="click me"
+            android:onClick="@{EventHandler::onButtonClicked}"
+            />
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 </layout>

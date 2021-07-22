@@ -20,5 +20,6 @@ public class DataBindingDemoActivity extends AppCompatActivity {
         BookInfo book = new BookInfo("Android", "无名", "五星");
 //        dataBinding.setVariable(BR.book, book);
         dataBinding.setBook(book);
+        dataBinding.setEventHandler(new EventHandleListener(this));
     }
 }
