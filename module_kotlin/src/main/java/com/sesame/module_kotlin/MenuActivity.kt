@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.sesame.module_kotlin.coroutine.CoroutineActivity
+import com.sesame.module_kotlin.jetpack.databinding.DataBindingDemoActivity
 import com.sesame.module_kotlin.jetpack.lifecycle.LifecycleActivity
 import com.sesame.module_kotlin.jetpack.viewmodel.VmDemoActivity
 import com.sesame.module_kotlin.jetpack.viewmodel.sharedata.SeekBarActivity
@@ -19,6 +20,7 @@ class MenuActivity : AppCompatActivity() {
         Lifecycle(LifecycleActivity::class.java),
         ViewModel(VmDemoActivity::class.java),
         ViewModelWithLiveDataDemo(SeekBarActivity::class.java),
+        DataBindingDemo(DataBindingDemoActivity::class.java),
         ;
 
         companion object {
