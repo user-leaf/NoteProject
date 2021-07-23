@@ -21,5 +21,11 @@ public class DataBindingDemoActivity extends AppCompatActivity {
 //        dataBinding.setVariable(BR.book, book);
         dataBinding.setBook(book);
         dataBinding.setEventHandler(new EventHandleListener(this));
+
+        // 自定义BindingAdapter
+        dataBinding.setNetworkImage("https://img1.baidu.com/it/u=3676446160,2628100231&fm=26&fmt=auto&gp=0.jpg");
+
+        // 方法重载
+        dataBinding.setLocalImage(R.mipmap.ic_launcher);
     }
 }
