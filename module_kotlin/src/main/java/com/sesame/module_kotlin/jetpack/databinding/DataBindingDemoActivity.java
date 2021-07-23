@@ -8,6 +8,7 @@ import androidx.databinding.DataBindingUtil;
 
 import com.sesame.module_kotlin.R;
 import com.sesame.module_kotlin.databinding.ActivityDemoDatabindingBinding;
+import com.sesame.module_kotlin.jetpack.databinding.twowaybinding.TwoWayBindingViewModel;
 
 public class DataBindingDemoActivity extends AppCompatActivity {
 
@@ -27,5 +28,8 @@ public class DataBindingDemoActivity extends AppCompatActivity {
 
         // 方法重载
         dataBinding.setLocalImage(R.mipmap.ic_launcher);
+
+        // 双向绑定
+        dataBinding.setViewModel(new TwoWayBindingViewModel());
     }
 }

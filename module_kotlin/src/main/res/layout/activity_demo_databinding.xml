@@ -19,6 +19,10 @@
         <variable
             name="localImage"
             type="int" />
+
+        <variable
+            name="viewModel"
+            type="com.sesame.module_kotlin.jetpack.databinding.twowaybinding.TwoWayBindingViewModel" />
     </data>
 
     <androidx.core.widget.NestedScrollView
@@ -82,6 +86,24 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:image="@{networkImage}" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="双向绑定:" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{viewModel.userName}" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="双向绑定"
+                android:maxLines="1"
+                android:text="@={viewModel.userName}" />
 
         </androidx.appcompat.widget.LinearLayoutCompat>
     </androidx.core.widget.NestedScrollView>
