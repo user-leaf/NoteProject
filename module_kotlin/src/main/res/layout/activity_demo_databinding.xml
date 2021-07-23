@@ -23,6 +23,11 @@
         <variable
             name="viewModel"
             type="com.sesame.module_kotlin.jetpack.databinding.twowaybinding.TwoWayBindingViewModel" />
+
+        <variable
+            name="vm"
+            type="com.sesame.module_kotlin.jetpack.databinding.twowaybinding.TwoWayBindingFieldViewModel" />
+
     </data>
 
     <androidx.core.widget.NestedScrollView
@@ -90,6 +95,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
                 android:text="双向绑定:" />
 
 
@@ -104,6 +110,25 @@
                 android:hint="双向绑定"
                 android:maxLines="1"
                 android:text="@={viewModel.userName}" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="使用ObservableField优化双向绑定:\n打断点试了一下，并没有联动，不会自动调用getUserName()\n" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{vm.userName}" />
+
+            <EditText
+                android:id="@+id/et2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="使用ObservableField优化双向绑定"
+                android:maxLines="1"
+                android:text="@={vm.userName}" />
 
         </androidx.appcompat.widget.LinearLayoutCompat>
     </androidx.core.widget.NestedScrollView>
