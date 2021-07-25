@@ -58,6 +58,7 @@
         <activity android:name=".MenuRvActivity" />
         <activity android:name=".vm_livedata.TimerLiveDataActivity" />
         <activity android:name=".callphone.CallPhoneActivity" />
+        <activity android:name=".viewbinding.ViewBindingStudyJavaActivity" />
     </application>
 
 </manifest>

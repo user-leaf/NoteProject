@@ -147,12 +147,13 @@
             android:text="callPhone" />
 
         <TextView
+            android:id="@+id/tvViewBinding"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@android:color/holo_blue_light"
             android:gravity="center"
             android:minHeight="50dp"
-            android:text=""
+            android:text="网易微专业ViewBinding"
             />
 
     </LinearLayout>
