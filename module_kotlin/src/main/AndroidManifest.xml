@@ -25,6 +25,7 @@
         <activity android:name=".jetpack.viewmodel.VmDemoActivity" />
         <activity android:name="com.sesame.module_kotlin.jetpack.viewmodel.sharedata.SeekBarActivity" />
         <activity android:name=".jetpack.databinding.DataBindingDemoActivity" />
+        <activity android:name=".jetpack.navigation.NavigationActivity" />
 
         <service android:name=".jetpack.lifecycle.service.MyService" />
     </application>
