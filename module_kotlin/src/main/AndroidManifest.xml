@@ -28,6 +28,7 @@
         <activity android:name=".jetpack.navigation.NavigationActivity">
             <nav-graph android:value="@navigation/nav_graph" />
         </activity>
+        <activity android:name=".learning.KotlinFunctionActivity" />
 
         <service android:name=".jetpack.lifecycle.service.MyService" />
     </application>
