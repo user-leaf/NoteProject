@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
@@ -77,6 +78,13 @@ public class MainFragment extends Fragment {
         });
 //        // 方法2
 //        view.findViewById(R.id.btnToSecondFragment).setOnClickListener(Navigation.createNavigateOnClickListener(R.id.action_mainFragment_to_secondFragment));
+
+        Bundle bundle = getArguments();
+        if (bundle != null) {
+            String params = bundle.getString("params");
+            TextView tv = view.findViewById(R.id.btnToSecondFragment);
+            tv.setText(params);
+        }
 
         return view;
     }

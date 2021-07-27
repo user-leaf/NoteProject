@@ -8,7 +8,8 @@
         android:id="@+id/mainFragment"
         android:name="com.sesame.module_kotlin.jetpack.navigation.MainFragment"
         android:label="fragment_main"
-        tools:layout="@layout/fragment_main" >
+        tools:layout="@layout/fragment_main">
+        <deepLink app:uri="http://www.sesame.com/{params}" />
         <action
             android:id="@+id/action_mainFragment_to_secondFragment"
             app:destination="@id/secondFragment"
@@ -19,15 +20,13 @@
 
         <argument
             android:name="user_name"
-            app:argType="string"
             android:defaultValue="'unknown"
-            />
+            app:argType="string" />
 
         <argument
             android:name="age"
-            app:argType="integer"
             android:defaultValue="0"
-            />
+            app:argType="integer" />
     </fragment>
     <fragment
         android:id="@+id/secondFragment"
