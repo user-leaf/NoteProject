@@ -25,6 +25,10 @@
         <activity android:name=".jetpack.viewmodel.VmDemoActivity" />
         <activity android:name="com.sesame.module_kotlin.jetpack.viewmodel.sharedata.SeekBarActivity" />
         <activity android:name=".jetpack.databinding.DataBindingDemoActivity" />
+        <activity android:name=".jetpack.navigation.NavigationActivity">
+            <nav-graph android:value="@navigation/nav_graph" />
+        </activity>
+        <activity android:name=".learning.KotlinFunctionActivity" />
 
         <service android:name=".jetpack.lifecycle.service.MyService" />
     </application>
