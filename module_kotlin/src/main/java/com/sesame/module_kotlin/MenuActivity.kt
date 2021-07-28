@@ -8,6 +8,7 @@ import com.sesame.module_kotlin.coroutine.CoroutineActivity
 import com.sesame.module_kotlin.jetpack.databinding.DataBindingDemoActivity
 import com.sesame.module_kotlin.jetpack.lifecycle.LifecycleActivity
 import com.sesame.module_kotlin.jetpack.navigation.NavigationActivity
+import com.sesame.module_kotlin.jetpack.room.RoomDemoActivity
 import com.sesame.module_kotlin.jetpack.viewmodel.VmDemoActivity
 import com.sesame.module_kotlin.jetpack.viewmodel.sharedata.SeekBarActivity
 import com.sesame.module_kotlin.learning.KotlinFunctionActivity
@@ -25,6 +26,7 @@ class MenuActivity : AppCompatActivity() {
         ViewModelWithLiveDataDemo(SeekBarActivity::class.java),
         DataBindingDemo(DataBindingDemoActivity::class.java),
         NavigationDemo(NavigationActivity::class.java),
+        RoomDemo(RoomDemoActivity::class.java),
         ;
 
         companion object {

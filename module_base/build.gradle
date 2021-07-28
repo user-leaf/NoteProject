@@ -42,8 +42,8 @@ dependencies {
     api "io.reactivex.rxjava3:rxjava:3.0.0"
     api 'io.reactivex.rxjava3:rxandroid:3.0.0'
     api 'com.google.code.gson:gson:2.8.7'
-    api  'com.scwang.smart:refresh-layout-kernel:2.0.3'      //核心必须依赖
-    api  'com.scwang.smart:refresh-header-classics:2.0.3'    //经典刷新头
+    api 'com.scwang.smart:refresh-layout-kernel:2.0.3'      //核心必须依赖
+    api 'com.scwang.smart:refresh-header-classics:2.0.3'    //经典刷新头
     api 'com.airbnb.android:lottie:3.7.0'
     api 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.50'
     api 'com.squareup.okhttp3:okhttp:4.9.1'
@@ -63,4 +63,5 @@ dependencies {
     api 'com.google.code.gson:gson:2.8.7'
 
     api 'com.squareup.picasso:picasso:2.71828'
+
 }
