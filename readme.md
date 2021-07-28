@@ -58,6 +58,9 @@ android:fitsSystemWindows=”true” （触发 View 的 padding 属性来给系�
 原 pure music APP 中是用工具类通过代码设置了透明状态栏才生效的，没有通过 theme style设置。
 
 
+### 不懂的
+#### 1. 
+
 ### 学习感悟
 
 1. 研究一下 pure music，遇到不会的就查查百度
