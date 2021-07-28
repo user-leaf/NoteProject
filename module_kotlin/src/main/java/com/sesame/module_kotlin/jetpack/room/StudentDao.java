@@ -1,5 +1,6 @@
 package com.sesame.module_kotlin.jetpack.room;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -21,7 +22,7 @@ public interface StudentDao {
     void updateStudent(Student student);
 
     @Query("SELECT * FROM student")
-    List<Student> getStudentList();
+    LiveData<List<Student>> getStudentList();
 
     @Query("SELECT * FROM student WHERE id = :id")
     Student getStudentById(int id);
