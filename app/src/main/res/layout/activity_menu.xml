@@ -156,5 +156,22 @@
             android:text="网易微专业ViewBinding"
             />
 
+        <TextView
+            android:id="@+id/tvModule"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/holo_green_light"
+            android:gravity="center"
+            android:minHeight="50dp"
+            android:text="组件化测试" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/holo_blue_light"
+            android:gravity="center"
+            android:minHeight="50dp"
+            />
+
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>

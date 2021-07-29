@@ -1,5 +1,6 @@
 package com.sesame.noteproject;
 
+import android.app.Application;
 import android.content.Context;
 
 import com.alibaba.android.arouter.launcher.ARouter;
@@ -11,19 +12,36 @@ import com.scwang.smart.refresh.layout.api.RefreshHeader;
 import com.scwang.smart.refresh.layout.api.RefreshLayout;
 import com.scwang.smart.refresh.layout.listener.DefaultRefreshFooterCreator;
 import com.scwang.smart.refresh.layout.listener.DefaultRefreshHeaderCreator;
+import com.sesame.module_base.AppCompat;
+import com.sesame.module_base.AppConfig;
 
-public class Application extends android.app.Application {
+public class MainApplication extends Application {
 
     @Override
     public void onCreate() {
         super.onCreate();
-        if (BuildConfig.DEBUG){
+        initModuleApplications();
+        if (BuildConfig.DEBUG) {
             ARouter.openLog();
             ARouter.openDebug();
         }
         ARouter.init(this);
         DeeplinkManager.getInstance().init(this);
         initSmartRefresh();
+    }
+
+    private void initModuleApplications() {
+        for (String module : AppConfig.COMPONENTS) {
+            try {
+                Class<?> clazz = Class.forName(module);
+                Object object = clazz.newInstance();
+                if (object instanceof AppCompat) {
+                    ((AppCompat) object).initialize(this);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     private void initSmartRefresh() {

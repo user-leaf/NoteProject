@@ -61,6 +61,17 @@ android:fitsSystemWindows=”true” （触发 View 的 padding 属性来给系�
 ### 不懂的
 #### 1. 
 
+### 组件化
+```
+project
+├── main
+├── module_base
+├── module_kotlin
+└── module_test
+```
+实现了组件化，但是有些疑问不太确定
+1. 不太清楚module的xxApplication的initialize()实现，以及各module的清单文件里要不要加上xxApplication
+
 ### 学习感悟
 
 1. 研究一下 pure music，遇到不会的就查查百度

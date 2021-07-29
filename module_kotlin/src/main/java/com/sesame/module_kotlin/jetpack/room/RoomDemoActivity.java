@@ -89,34 +89,34 @@ public class RoomDemoActivity extends AppCompatActivity implements View.OnClickL
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.btnAdd:
-                Observable.just(1)
-                        .map(new Function<Integer, Object>() {
-                            @Override
-                            public Object apply(Integer integer) throws Throwable {
-                                mStudentViewModel.getMyDatabase().studentDao().insertStudent(new Student("张三", "age:" + mRandom.nextInt(20)));
-                                return 1;
-                            }
-                        })
-                        .subscribeOn(Schedulers.io())
-                        .observeOn(AndroidSchedulers.mainThread())
-                        .subscribe(new DisposableObserver<Object>() {
-                            @Override
-                            public void onNext(@NonNull Object o) {
+        int id = v.getId();
+        if (id == R.id.btnAdd) {
+            Observable.just(1)
+                    .map(new Function<Integer, Object>() {
+                        @Override
+                        public Object apply(Integer integer) throws Throwable {
+                            mStudentViewModel.getMyDatabase().studentDao().insertStudent(new Student("张三", "age:" + mRandom.nextInt(20)));
+                            return 1;
+                        }
+                    })
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe(new DisposableObserver<Object>() {
+                        @Override
+                        public void onNext(@NonNull Object o) {
 
-                            }
+                        }
 
-                            @Override
-                            public void onError(@NonNull Throwable e) {
+                        @Override
+                        public void onError(@NonNull Throwable e) {
 
-                            }
+                        }
 
-                            @Override
-                            public void onComplete() {
+                        @Override
+                        public void onComplete() {
 
-                            }
-                        });
+                        }
+                    });
 
 //                Observable.just(1)
 //                        .map((Function<Integer, List<Student>>) integer -> {
@@ -145,21 +145,10 @@ public class RoomDemoActivity extends AppCompatActivity implements View.OnClickL
 //
 //                            }
 //                        });
-
-                break;
-
-            case R.id.btnUpdate:
-                break;
-
-            case R.id.btnDelete:
-                break;
-
-            case R.id.btnGetStudentList:
-//                getStudentList();
-                break;
-
-            case R.id.btnGetStudentById:
-//                Executors.newSingleThreadExecutor().execute(new Runnable() {
+        } else if (id == R.id.btnUpdate) {
+        } else if (id == R.id.btnDelete) {
+        } else if (id == R.id.btnGetStudentList) {//                getStudentList();
+        } else if (id == R.id.btnGetStudentById) {//                Executors.newSingleThreadExecutor().execute(new Runnable() {
 //                    @Override
 //                    public void run() {
 //                        Student student = mMyDatabase.studentDao().getStudentById(5);
@@ -171,7 +160,6 @@ public class RoomDemoActivity extends AppCompatActivity implements View.OnClickL
 //                        });
 //                    }
 //                });
-                break;
         }
     }
 

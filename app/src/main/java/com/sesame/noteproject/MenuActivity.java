@@ -40,7 +40,7 @@ public class MenuActivity extends AppCompatActivity {
         ButterKnife.bind(this);
     }
 
-    @OnClick({R.id.tvMerge, R.id.tvTitleBar, R.id.tvARouter, R.id.tvDeeplink, R.id.tvAnim, R.id.tvRefresh, R.id.tvWebSocket, R.id.tvDataBinding, R.id.tvRecyclerView, R.id.tvKotlinNull, R.id.tvViewModel, R.id.tvLiveData, R.id.tvLiveDataKt, R.id.tvMd, R.id.tvCallPhone, R.id.tvViewBinding})
+    @OnClick({R.id.tvMerge, R.id.tvTitleBar, R.id.tvARouter, R.id.tvDeeplink, R.id.tvAnim, R.id.tvRefresh, R.id.tvWebSocket, R.id.tvDataBinding, R.id.tvRecyclerView, R.id.tvKotlinNull, R.id.tvViewModel, R.id.tvLiveData, R.id.tvLiveDataKt, R.id.tvMd, R.id.tvCallPhone, R.id.tvViewBinding, R.id.tvModule})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.tvMerge:
@@ -114,6 +114,9 @@ public class MenuActivity extends AppCompatActivity {
                 break;
             case R.id.tvViewBinding:
                 startActivity(new Intent(this, ViewBindingStudyJavaActivity.class));
+                break;
+            case R.id.tvModule:
+                startActivity(new Intent(this, ModulesActivity.class));
                 break;
         }
     }

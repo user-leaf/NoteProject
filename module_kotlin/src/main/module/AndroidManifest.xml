@@ -4,21 +4,8 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
 
-    <application
-        android:name=".KotlinApplication"
-        android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
-        android:supportsRtl="true"
-        android:theme="@style/Theme.NoteProject"
-        android:usesCleartextTraffic="true">
-        <activity android:name=".MenuActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+    <application>
+        <activity android:name=".MenuActivity"></activity>
         <activity android:name=".coroutine.CoroutineActivity" />
         <activity android:name=".learning.KotlinStandardFunctionActivity" />
         <activity android:name=".jetpack.lifecycle.LifecycleActivity" />
@@ -31,6 +18,7 @@
         <activity android:name=".learning.KotlinFunctionActivity" />
         <activity android:name=".jetpack.room.RoomDemoActivity" />
         <activity android:name=".module.LoginActivity" />
+
         <service android:name=".jetpack.lifecycle.service.MyService" />
     </application>
 
