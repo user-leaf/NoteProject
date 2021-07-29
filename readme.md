@@ -62,6 +62,12 @@ android:fitsSystemWindows=”true” （触发 View 的 padding 属性来给系�
 #### 1. 
 
 ### 组件化
+
+组件化核心:
+1、APP和lib之间的切换
+2、gradle
+3、通信
+
 ```
 project
 ├── main
