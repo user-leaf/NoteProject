@@ -57,12 +57,15 @@ android:fitsSystemWindows=”true” （触发 View 的 padding 属性来给系�
 注：该属性的生效条件是只有在设置了透明状态栏(StatusBar)或者导航栏(NavigationBar)此属性才会生效。
 原 pure music APP 中是用工具类通过代码设置了透明状态栏才生效的，没有通过 theme style设置。
 
-
-### 不懂的
-#### 1. 
+---
 
 ### 组件化
 
+https://study.163.com/course/courseLearn.htm?courseId=1209450865#/learn/live?lessonId=1279546795&courseId=1209450865
+
+![组件化](module.png)
+
+做了哪些工作
 组件化核心:
 1、APP和lib之间的切换
 2、gradle
@@ -76,7 +79,14 @@ project
 └── module_test
 ```
 实现了组件化，但是有些疑问不太确定
-1. 不太清楚module的xxApplication的initialize()实现，以及各module的清单文件里要不要加上xxApplication
+1. 不太清楚module的xxApplication的initialize()实现，以及各module的清单文件里要不要加上xxApplication。
+
+貌似是这样：当为子module时，在main的xxApplication里，联动初始化各个子module的xxApplication的initialize()；
+当各子module设置为可独立运行时，才在清单文件里加上name=xxApplication。
+
+2. 对于他们的通信，是通过在module_base里的接口来实现的。
+
+---
 
 ### 学习感悟
 
