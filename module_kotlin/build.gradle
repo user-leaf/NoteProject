@@ -7,12 +7,12 @@ plugins {
 }
 
 android {
-    compileSdkVersion 30
+    compileSdkVersion compile_sdk_version.toInteger()
 
     defaultConfig {
         applicationId 'com.sesame.module_kotlin'
-        minSdkVersion 23
-        targetSdkVersion 30
+        minSdkVersion min_sdk_version.toInteger()
+        targetSdkVersion target_sdk_version.toInteger()
         versionCode 1
         versionName "1.0"
 

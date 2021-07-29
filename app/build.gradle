@@ -4,13 +4,13 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'com.jakewharton.butterknife'
 
 android {
-    compileSdkVersion 30
+    compileSdkVersion compile_sdk_version.toInteger()
     buildToolsVersion "30.0.1"
 
     defaultConfig {
         applicationId "com.sesame.noteproject"
-        minSdkVersion 23
-        targetSdkVersion 30
+        minSdkVersion min_sdk_version.toInteger()
+        targetSdkVersion target_sdk_version.toInteger()
         versionCode 1
         versionName "1.0"
 
