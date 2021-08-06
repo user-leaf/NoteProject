@@ -9,13 +9,24 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.NoteProject">
-        <activity android:name=".MainActivity">
+        <receiver
+            android:name=".chapter6_broadcast.CustomReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.sesame.appcheck.broadcast.MY_BROADCAST"/>
+            </intent-filter>
+        </receiver>
+
+        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".MenuActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".chapter6_broadcast.BroadcastActivity" />
     </application>
 
 </manifest>
