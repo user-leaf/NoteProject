@@ -9,6 +9,9 @@ import kotlinx.android.synthetic.main.activity_menu.*
 
 class MenuActivity : AppCompatActivity() {
 
+    /*
+       github上scwang的SmartRefreshLayout库是这样运用enum的
+     */
     enum class MenuItem(var clazz: Class<*>) {
         BroadcastReceiver(BroadcastActivity::class.java),
         ;
