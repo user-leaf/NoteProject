@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.google.android.flexbox.FlexboxLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        app:flexDirection="row"
+        app:flexWrap="wrap"
+        app:justifyContent="flex_start">
+
+        <TextView
+            style="@style/FlexboxTextStyle"
+            android:text="推送和即时通讯" />
+
+        <TextView
+            style="@style/FlexboxTextStyle"
+            android:text="蓝牙"/>
+
+        <TextView
+            style="@style/FlexboxTextStyle"
+            android:text="程序员" />
+
+        <TextView
+            style="@style/FlexboxTextStyle"
+            android:text="影视天堂" />
+
+        <TextView
+            style="@style/FlexboxTextStyle"
+            android:text="郭德纲" />
+
+        <TextView
+            style="@style/FlexboxTextStyle"
+            android:text="旅行——在路上" />
+
+        <TextView
+            style="@style/FlexboxTextStyle"
+            android:text="复仇者联盟4" />
+
+    </com.google.android.flexbox.FlexboxLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</LinearLayout>

@@ -32,6 +32,7 @@ class MenuActivity : AppCompatActivity() {
         companion object {
             var titles = mutableListOf<String>()
             fun getAllTitles(): MutableList<String> {
+                titles.clear()
                 for (item: MenuItem in values()) {
                     titles.add(item.name)
                 }

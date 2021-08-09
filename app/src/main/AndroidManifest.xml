@@ -61,6 +61,7 @@
         <activity android:name=".callphone.CallPhoneActivity" />
         <activity android:name=".viewbinding.ViewBindingStudyJavaActivity" />
         <activity android:name=".ModulesActivity" />
+        <activity android:name=".flexbox.FlexboxActivity" />
     </application>
 
 </manifest>

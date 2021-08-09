@@ -12,16 +12,15 @@ class MenuActivity : AppCompatActivity() {
     enum class MenuItem(var clazz: Class<*>) {
         BroadcastReceiver(BroadcastActivity::class.java),
         ;
+    }
 
-        companion object {
-            var titles = mutableListOf<String>()
-            fun getAllTitles(): MutableList<String> {
-                for (item: MenuItem in values()) {
-                    titles.add(item.name)
-                }
-                return titles
-            }
+    var titles = mutableListOf<String>()
+    private fun getAllTitles(): MutableList<String> {
+        titles.clear()
+        for (item: MenuItem in MenuItem.values()) {
+            titles.add(item.name)
         }
+        return titles
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,7 +31,7 @@ class MenuActivity : AppCompatActivity() {
 
     private fun initView() {
         rvMenus.layoutManager = LinearLayoutManager(this)
-        val adapter = MenuAdapter(MenuItem.getAllTitles())
+        val adapter = MenuAdapter(getAllTitles())
         adapter.setOnItemClickListener { adapter, view, position ->
             startActivity(Intent(view.context, MenuItem.values()[position].clazz))
         }

@@ -14,4 +14,14 @@
 <!--        <item name="android:windowTranslucentStatus">true</item>-->
 <!--    </style>-->
 
+    <style name="FlexboxTextStyle">
+        <item name="android:layout_margin">5dp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/shape_pink_border</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:padding">8dp</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
 </resources>

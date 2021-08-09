@@ -64,5 +64,6 @@ dependencies {
     api 'com.google.code.gson:gson:2.8.7'
 
     api 'com.squareup.picasso:picasso:2.71828'
+    api 'com.google.android:flexbox:1.1.0'
 
 }
