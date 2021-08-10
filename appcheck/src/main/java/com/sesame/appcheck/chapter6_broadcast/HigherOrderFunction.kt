@@ -13,7 +13,7 @@ fun minus(num1: Int, num2: Int): Int {
     return num1 - num2
 }
 
-fun StringBuilder.build(block: StringBuilder.() -> Unit): StringBuilder {
+inline fun StringBuilder.build(block: StringBuilder.() -> Unit): StringBuilder {
     block()
     return this
 }
