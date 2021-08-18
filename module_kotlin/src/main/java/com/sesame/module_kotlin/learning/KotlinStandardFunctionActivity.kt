@@ -33,6 +33,7 @@ class KotlinStandardFunctionActivity : AppCompatActivity() {
             Log.d(TAG, "list: $list, result: $result")
 
             tv?.let {
+                //text = ""
                 it.text = "Kotlin let"
                 it.textSize = 20f
                 it.setOnClickListener {
@@ -76,6 +77,9 @@ class KotlinStandardFunctionActivity : AppCompatActivity() {
                 }
                 append("<---end")
                 toString()
+            }
+            tv.run {
+                text = ""
             }
             println("@@@run函数 result: $result")
         }

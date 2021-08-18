@@ -76,7 +76,8 @@ fun doStudy(study: Study?){
 ①工具类的实现，在Kotlin中非常推荐使用单例类的方式来实现。单例类的写法会将类中所有的方法全部变成类似于静态方法的调用方式。
 ②只让类中某一个方法变成类似静态方法的调用方式(写法)，使用companion object。
 @JvmStatic注解只能加在单例类或companion object中的方法上。
-③ 顶层方法是指那些没有定义在任何类中的方法，Kotlin编译器会将所有的顶层方法全部编译成静态方法，因此只要定义了一个顶层方法，就一定是一个静态方法。 在Java中调用Helper.kt中的doSomething()顶层方法: HelperKt.doSomething(); 。Kotlin编译器会自动创建一个叫做HelperKt的Java类。
+③ 顶层方法是指那些没有定义在任何类中的方法，Kotlin编译器会将所有的顶层方法全部编译成静态方法，因此只要定义了一个顶层方法，就一定是一个静态方法。 
+在Java中调用Helper.kt中的doSomething()顶层方法: HelperKt.doSomething(); 。Kotlin编译器会自动创建一个叫做HelperKt的Java类。
 
 ### 第6.5 Kotlin高阶函数
 内联函数能抵消Lambda表达式带来的运行时开销。

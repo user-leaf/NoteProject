@@ -9,9 +9,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorPrimary"
+        app:dividerDrawable="@android:color/holo_orange_dark"
         app:flexDirection="row"
         app:flexWrap="wrap"
-        app:justifyContent="flex_start">
+        app:justifyContent="flex_start"
+        app:showDivider="middle">
 
         <TextView
             style="@style/FlexboxTextStyle"
@@ -19,7 +21,7 @@
 
         <TextView
             style="@style/FlexboxTextStyle"
-            android:text="蓝牙"/>
+            android:text="蓝牙" />
 
         <TextView
             style="@style/FlexboxTextStyle"
