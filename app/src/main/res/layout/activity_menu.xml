@@ -114,8 +114,7 @@
             android:background="@android:color/holo_blue_light"
             android:gravity="center"
             android:minHeight="50dp"
-            android:text="LiveData"
-            />
+            android:text="LiveData" />
 
 
         <TextView
@@ -134,8 +133,7 @@
             android:background="@android:color/holo_blue_light"
             android:gravity="center"
             android:minHeight="50dp"
-            android:text="MaterialDesign"
-            />
+            android:text="MaterialDesign" />
 
         <TextView
             android:id="@+id/tvCallPhone"
@@ -153,8 +151,7 @@
             android:background="@android:color/holo_blue_light"
             android:gravity="center"
             android:minHeight="50dp"
-            android:text="网易微专业ViewBinding"
-            />
+            android:text="网易微专业ViewBinding" />
 
         <TextView
             android:id="@+id/tvModule"
@@ -172,8 +169,23 @@
             android:background="@android:color/holo_blue_light"
             android:gravity="center"
             android:minHeight="50dp"
-            android:text="Flexbox"
-            />
+            android:text="Flexbox" />
+
+        <TextView
+            android:id="@+id/tvUri"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/holo_green_light"
+            android:gravity="center"
+            android:minHeight="50dp"
+            android:text="Uri" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/holo_blue_light"
+            android:gravity="center"
+            android:minHeight="50dp" />
 
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>
