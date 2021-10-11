@@ -20,6 +20,8 @@
         <activity android:name=".module.LoginActivity" />
 
         <service android:name=".jetpack.lifecycle.service.MyService" />
+        <activity android:name=".flow.FlowDemoActivity" />
+        <activity android:name=".coroutine.CoroutineDemoActivity" />
     </application>
 
 </manifest>

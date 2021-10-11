@@ -5,6 +5,8 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.sesame.module_kotlin.coroutine.CoroutineActivity
+import com.sesame.module_kotlin.coroutine.CoroutineDemoActivity
+import com.sesame.module_kotlin.flow.FlowDemoActivity
 import com.sesame.module_kotlin.jetpack.databinding.DataBindingDemoActivity
 import com.sesame.module_kotlin.jetpack.lifecycle.LifecycleActivity
 import com.sesame.module_kotlin.jetpack.navigation.NavigationActivity
@@ -21,12 +23,14 @@ class MenuActivity : AppCompatActivity() {
         KotlinFunction(KotlinFunctionActivity::class.java),
         KotlinStandardFunction(KotlinStandardFunctionActivity::class.java),
         Coroutine(CoroutineActivity::class.java),
+        CoroutineDemo(CoroutineDemoActivity::class.java),
         Lifecycle(LifecycleActivity::class.java),
         ViewModel(VmDemoActivity::class.java),
         ViewModelWithLiveDataDemo(SeekBarActivity::class.java),
         DataBindingDemo(DataBindingDemoActivity::class.java),
         NavigationDemo(NavigationActivity::class.java),
         RoomDemo(RoomDemoActivity::class.java),
+        FlowDemo(FlowDemoActivity::class.java),
         ;
 
         companion object {
