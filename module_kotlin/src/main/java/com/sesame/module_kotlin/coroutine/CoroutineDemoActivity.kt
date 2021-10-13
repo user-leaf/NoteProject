@@ -4,9 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.sesame.module_kotlin.R
 import kotlinx.android.synthetic.main.activity_demo_coroutine.*
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
 
 // https://www.jianshu.com/p/76d2f47b900d
 class CoroutineDemoActivity : AppCompatActivity() {
@@ -25,7 +23,12 @@ class CoroutineDemoActivity : AppCompatActivity() {
                 val token = requestToken()
                 val post = createPost(token)
                 processPost(post)
+
+                withContext(Dispatchers.Main){
+
+                }
             }
+
         }
     }
 
