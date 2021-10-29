@@ -11,6 +11,7 @@
         >
 
         <com.sesame.noteproject.test.TestView
+            android:id="@+id/btnTest"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="button" />

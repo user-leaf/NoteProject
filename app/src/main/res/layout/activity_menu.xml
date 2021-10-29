@@ -181,10 +181,12 @@
             android:text="Uri" />
 
         <TextView
+            android:id="@+id/tvEventTest"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@android:color/holo_blue_light"
             android:gravity="center"
+            android:text="EventTestActivity"
             android:minHeight="50dp" />
 
     </LinearLayout>
