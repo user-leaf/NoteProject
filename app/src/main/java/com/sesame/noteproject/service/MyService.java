@@ -7,6 +7,7 @@ import android.os.Build;
 import android.os.IBinder;
 import android.util.Log;
 import android.view.WindowManager;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
@@ -32,21 +33,24 @@ public class MyService extends Service {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         Log.d(TAG, "onStartCommand: ");
-        boolean dialog = intent.getBooleanExtra("dialog", false);
-        if (dialog){
-            Log.d(TAG, "onStartCommand: show dialog true");
-            AlertDialog alertDialog = new AlertDialog.Builder(MyService.this, R.style.Theme_AppCompat_Dialog)
-                    .setTitle("title")
-                    .setMessage("dialog in service")
-                    .create();
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){//6.0 　　　　　　
-                alertDialog.getWindow().setType(WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY);
-            }else {
-                alertDialog.getWindow().setType(WindowManager.LayoutParams.TYPE_SYSTEM_ALERT);
-            }
+
+        Toast.makeText(this, "toast in service", Toast.LENGTH_SHORT).show();
+
+//        boolean dialog = intent.getBooleanExtra("dialog", false);
+//        if (dialog){
+//            Log.d(TAG, "onStartCommand: show dialog true");
+//            AlertDialog alertDialog = new AlertDialog.Builder(MyService.this, R.style.Theme_AppCompat_Dialog)
+//                    .setTitle("title")
+//                    .setMessage("dialog in service")
+//                    .create();
+//            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){//6.0 　　　　　　
+//                alertDialog.getWindow().setType(WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY);
+//            }else {
+//                alertDialog.getWindow().setType(WindowManager.LayoutParams.TYPE_SYSTEM_ALERT);
+//            }
 //            alertDialog.getWindow().setType(WindowManager.LayoutParams.TYPE_SYSTEM_ALERT);
-            alertDialog.show();
-        }
+//            alertDialog.show();
+//        }
         return super.onStartCommand(intent, flags, startId);
     }
 

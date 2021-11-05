@@ -25,4 +25,22 @@
         android:layout_height="wrap_content"
         android:text="dialog"
         />
+
+    <TextView
+        android:id="@+id/tvStartIntentService"
+        android:layout_width="wrap_content"
+        android:layout_height="45dp"
+        android:text="startIntentService"
+        android:layout_marginTop="10dp"
+        android:gravity="center_vertical"
+        />
+
+    <TextView
+        android:id="@+id/tvStartActivity"
+        android:layout_width="wrap_content"
+        android:layout_height="45dp"
+        android:text="context.startActivity"
+        android:layout_marginTop="10dp"
+        android:gravity="center_vertical"
+        />
 </androidx.appcompat.widget.LinearLayoutCompat>
