@@ -1,21 +1,28 @@
 package com.sesame.noteproject.service;
 
-import android.Manifest;
 import android.app.Activity;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.ServiceConnection;
 import android.os.Bundle;
+import android.os.IBinder;
+import android.os.RemoteException;
+import android.util.Log;
 import android.view.View;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.sesame.noteproject.IMyAidlInterface;
 import com.sesame.noteproject.R;
 import com.sesame.noteproject.test.EventTestActivity;
 import com.tbruyelle.rxpermissions3.RxPermissions;
 
 public class ServiceDemoActivity extends AppCompatActivity implements View.OnClickListener {
+
+    private static final String TAG = ServiceDemoActivity.class.getSimpleName();
 
     private RxPermissions mRxPermissions;
 
@@ -29,6 +36,8 @@ public class ServiceDemoActivity extends AppCompatActivity implements View.OnCli
         findViewById(R.id.btnDialog).setOnClickListener(this);
         findViewById(R.id.tvStartIntentService).setOnClickListener(this);
         findViewById(R.id.tvStartActivity).setOnClickListener(this);
+        // test aidl
+        findViewById(R.id.btnBindService).setOnClickListener(this);
 
         mRxPermissions = new RxPermissions(this);
     }
@@ -80,6 +89,30 @@ public class ServiceDemoActivity extends AppCompatActivity implements View.OnCli
 //                getApplicationContext().startActivity(intent1);
 
                 start(getApplicationContext(), intent1);
+                break;
+
+            case R.id.btnBindService:
+                Intent bindIntent = new Intent(this, LiteService.class);
+                bindService(bindIntent, new ServiceConnection() {
+                    @Override
+                    public void onServiceConnected(ComponentName name, IBinder service) {
+                        IMyAidlInterface iMyAidlInterface = IMyAidlInterface.Stub.asInterface(service);
+                        if (iMyAidlInterface != null) {
+                            try {
+                                String currentProcessName = ProcessUtil.getCurrentProcessName(ServiceDemoActivity.this);
+                                String serverProcessName = iMyAidlInterface.getServerProcessName(currentProcessName);
+                                Log.d(TAG, "服务进程: " + serverProcessName);
+                            } catch (RemoteException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onServiceDisconnected(ComponentName name) {
+
+                    }
+                }, Context.BIND_AUTO_CREATE);
                 break;
         }
     }
