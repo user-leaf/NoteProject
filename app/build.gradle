@@ -29,6 +29,7 @@ android {
         viewBinding {
             enabled = true
         }
+
     }
 
     buildTypes {
@@ -41,6 +42,30 @@ android {
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
+    }
+    flavorDimensions 'default'
+    productFlavors {
+        prod {
+            manifestPlaceholders logo: '@mipmap/ic_launcher', appName: '安卓笔记'
+            dimension 'default'
+            applicationId 'com.tiger.mobile'
+            versionCode versionCodeRelease.toInteger()
+            versionName versionNameRelease
+        }
+        stage {
+            manifestPlaceholders logo: '@mipmap/ic_launcher', appName: '安卓笔记stage'
+            dimension 'default'
+            applicationId 'com.tiger.mobile'
+            versionCode versionCodeRelease.toInteger()
+            versionName versionNameRelease
+        }
+        demo {
+            manifestPlaceholders logo: '@mipmap/ic_launcher_round', appName: '安卓笔记demo'
+            dimension 'default'
+            applicationId 'com.tiger.demo'
+            versionCode versionCodeDev.toInteger() // 不太明白我这里为什么得这样转一下
+            versionName versionNameDev
+        }
     }
 }
 
