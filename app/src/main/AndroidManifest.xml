@@ -70,6 +70,7 @@
         <activity android:name=".flexbox.FlexboxActivity" />
         <activity android:name=".uri.UriActivity" />
         <activity android:name=".service.ServiceDemoActivity" />
+        <activity android:name=".lazyfragment.LazyActivity" />
 
         <service
             android:name=".service.MyService"
