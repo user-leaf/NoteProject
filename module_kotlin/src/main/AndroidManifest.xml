@@ -33,6 +33,7 @@
         <activity android:name=".module.LoginActivity" />
         <activity android:name=".flow.FlowDemoActivity" />
         <activity android:name=".coroutine.CoroutineDemoActivity" />
+        <activity android:name=".coroutine_demo.PersonalPageActivity" />
 
         <service android:name=".jetpack.lifecycle.service.MyService" />
     </application>
