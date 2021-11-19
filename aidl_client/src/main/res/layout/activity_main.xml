@@ -37,7 +37,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="15dp"
-        android:text="计算a*b" />
+        android:text="AIDL远程计算" />
 
     <TextView
         android:id="@+id/tvResult"
