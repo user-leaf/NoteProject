@@ -4,7 +4,9 @@
 # AndroidIPC 机制
 https://github.com/leavesC/IPCSamples/blob/master/note/AndroidIPC%E6%9C%BA%E5%88%B6%EF%BC%883%EF%BC%89-AIDL.md
 
-# aidl流程
+# aidl操作流程
+1、定义AIDL文件；2、服务端实现接口；3、客户端调用接口。
+
 看官方文档  https://developer.android.google.cn/guide/components/aidl?hl=zh_cn#Defining
 
 【我】还是看官方文档吧，比较清晰，还能涉及到别的有用的内容。
