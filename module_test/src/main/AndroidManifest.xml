@@ -11,6 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.NoteProject">
         <activity android:name=".ModuleTestActivity">
+
+        </activity>
+        <activity android:name=".test1.SWDemoActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
