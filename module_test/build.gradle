@@ -3,6 +3,9 @@ if (TestModuleRunAlone.toBoolean()) {
 } else {
     apply plugin: 'com.android.library'
 }
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
 
 android {
     compileSdkVersion compile_sdk_version.toInteger()
