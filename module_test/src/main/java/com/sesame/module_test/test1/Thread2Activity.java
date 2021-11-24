@@ -22,15 +22,15 @@ public class Thread2Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_thread_handler);
 
-        mHandler = new Handler(getMainLooper()) {
-            @Override
-            public void handleMessage(@NonNull Message msg) {
-                super.handleMessage(msg);
-                Toast.makeText(Thread2Activity.this, "aaa", Toast.LENGTH_SHORT).show();
-            }
-        };
+//        mHandler = new Handler(getMainLooper()) {
+//            @Override
+//            public void handleMessage(@NonNull Message msg) {
+//                super.handleMessage(msg);
+//                Toast.makeText(Thread2Activity.this, "aaa", Toast.LENGTH_SHORT).show();
+//            }
+//        };
 
-//        mHandler = new MyHandler(this);
+        mHandler = new MyHandler(this);
 
         new MyThread2(this).start();
     }
@@ -38,7 +38,6 @@ public class Thread2Activity extends AppCompatActivity {
     public static class MyHandler extends Handler {
         private WeakReference<Thread2Activity> mWeakReference;
 
-        //
         public MyHandler(Thread2Activity activity) {
             mWeakReference = new WeakReference<>(activity);
         }
@@ -50,7 +49,7 @@ public class Thread2Activity extends AppCompatActivity {
                 return;
             }
             if (mWeakReference.get() != null) {
-                Toast.makeText(mWeakReference.get(), "aaa", Toast.LENGTH_SHORT).show();
+                Toast.makeText(mWeakReference.get(), "bbb", Toast.LENGTH_SHORT).show();
             }
 
         }
