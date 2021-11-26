@@ -1,16 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+CoordinatorLayout内部，每个child都必须带一个Behavior（其实不携带也行，不携带就不能被协调），
+CoordinatorLayout就根据每个child所携带的Behavior信息进行协调。
+-->
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:overScrollMode="never">
 
+    <!-- 理论上每个View必须携带一个Behavior,而这里AppBarLayout没有携带是因为它本身就有 -->
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fitsSystemWindows="true"
         android:theme="@style/AppTheme">
 
+        <!--CollapsingToolbarLayout主要是实现折叠布局的-->
         <com.google.android.material.appbar.CollapsingToolbarLayout
             android:layout_width="match_parent"
             android:layout_height="240dp"
@@ -26,6 +32,7 @@
                 android:src="@drawable/bg_home"
                 app:layout_collapseMode="parallax" />
 
+            <!-- 搜索框 -->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="55dp"

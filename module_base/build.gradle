@@ -69,4 +69,6 @@ dependencies {
 
     api 'androidx.navigation:navigation-fragment:2.3.5'
     api 'androidx.navigation:navigation-ui:2.3.5'
+
+    api 'com.github.hackware1993:MagicIndicator:1.7.0' // for androidx
 }
