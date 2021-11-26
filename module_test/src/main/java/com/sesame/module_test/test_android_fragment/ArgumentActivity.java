@@ -1,4 +1,4 @@
-package com.sesame.module_test.test_android;
+package com.sesame.module_test.test_android_fragment;
 
 import android.app.Fragment;
 import android.os.Bundle;

@@ -1,4 +1,4 @@
-package com.sesame.module_test.test_android;
+package com.sesame.module_test.test_android_fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
