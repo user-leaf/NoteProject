@@ -1,4 +1,4 @@
-package com.sesame.noteproject.md;
+package com.sesame.noteproject.material_design;
 
 import android.content.Context;
 import android.content.Intent;

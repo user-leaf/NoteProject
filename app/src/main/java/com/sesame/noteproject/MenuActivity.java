@@ -18,7 +18,7 @@ import com.sesame.noteproject.databinding.DatabindingActivity;
 import com.sesame.noteproject.deeplink.DeeplinkActivity;
 import com.sesame.noteproject.flexbox.FlexboxActivity;
 import com.sesame.noteproject.lazyfragment.LazyActivity;
-import com.sesame.noteproject.md.MaterialDesignActivity;
+import com.sesame.noteproject.material_design.MaterialDesignActivity;
 import com.sesame.noteproject.merge.MergeActivity;
 import com.sesame.noteproject.nulltest.NullTestActivity;
 import com.sesame.noteproject.refresh.RefreshActivity;
@@ -45,7 +45,7 @@ public class MenuActivity extends AppCompatActivity {
         ButterKnife.bind(this);
     }
 
-    @OnClick({R.id.tvMerge, R.id.tvTitleBar, R.id.tvARouter, R.id.tvDeeplink, R.id.tvAnim, R.id.tvRefresh, R.id.tvWebSocket, R.id.tvDataBinding, R.id.tvRecyclerView, R.id.tvKotlinNull, R.id.tvViewModel, R.id.tvLiveData, R.id.tvLiveDataKt, R.id.tvMd, R.id.tvCallPhone, R.id.tvViewBinding, R.id.tvModule, R.id.tvFlexbox, R.id.tvUri, R.id.tvEventTest, R.id.tvService, R.id.tvLazyLoadFragment})
+    @OnClick({R.id.tvMerge, R.id.tvTitleBar, R.id.tvARouter, R.id.tvDeeplink, R.id.tvAnim, R.id.tvRefresh, R.id.tvWebSocket, R.id.tvDataBinding, R.id.tvRecyclerView, R.id.tvKotlinNull, R.id.tvViewModel, R.id.tvLiveData, R.id.tvLiveDataKt, R.id.tvMd, R.id.tvCallPhone, R.id.tvViewBinding, R.id.tvModule, R.id.tvFlexbox, R.id.tvUri, R.id.tvEventTest, R.id.tvService, R.id.tvLazyLoadFragment, R.id.tvCoordinatorLayout})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.tvMerge:
@@ -140,6 +140,10 @@ public class MenuActivity extends AppCompatActivity {
 
             case R.id.tvLazyLoadFragment:
                 startActivity(new Intent(this, LazyActivity.class));
+                break;
+
+            case R.id.tvCoordinatorLayout:
+                startActivity(new Intent(this, CoordinatorLayoutActivity.class));
                 break;
         }
     }

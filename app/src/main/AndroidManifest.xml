@@ -19,7 +19,7 @@
             android:name=".service.MyIntentService"
             android:exported="false"></service>
 
-        <activity android:name=".md.MaterialDesignActivity" />
+        <activity android:name=".material_design.MaterialDesignActivity" />
         <activity android:name=".MainActivity" />
         <activity android:name=".CoordinatorLayoutActivity" />
         <activity android:name=".test.EventTestActivity" />
