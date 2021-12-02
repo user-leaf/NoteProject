@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.alibaba.android.arouter.facade.Postcard;
 import com.alibaba.android.arouter.facade.callback.NavigationCallback;
 import com.alibaba.android.arouter.launcher.ARouter;
+import com.sesame.noteproject.ad_dialog.AdActivity;
 import com.sesame.noteproject.anim.AnimActivity;
 import com.sesame.noteproject.arouter.VRouterPath;
 import com.sesame.noteproject.callphone.CallPhoneActivity;
@@ -45,7 +46,7 @@ public class MenuActivity extends AppCompatActivity {
         ButterKnife.bind(this);
     }
 
-    @OnClick({R.id.tvMerge, R.id.tvTitleBar, R.id.tvARouter, R.id.tvDeeplink, R.id.tvAnim, R.id.tvRefresh, R.id.tvWebSocket, R.id.tvDataBinding, R.id.tvRecyclerView, R.id.tvKotlinNull, R.id.tvViewModel, R.id.tvLiveData, R.id.tvLiveDataKt, R.id.tvMd, R.id.tvCallPhone, R.id.tvViewBinding, R.id.tvModule, R.id.tvFlexbox, R.id.tvUri, R.id.tvEventTest, R.id.tvService, R.id.tvLazyLoadFragment, R.id.tvCoordinatorLayout})
+    @OnClick({R.id.tvMerge, R.id.tvTitleBar, R.id.tvARouter, R.id.tvDeeplink, R.id.tvAnim, R.id.tvRefresh, R.id.tvWebSocket, R.id.tvDataBinding, R.id.tvRecyclerView, R.id.tvKotlinNull, R.id.tvViewModel, R.id.tvLiveData, R.id.tvLiveDataKt, R.id.tvMd, R.id.tvCallPhone, R.id.tvViewBinding, R.id.tvModule, R.id.tvFlexbox, R.id.tvUri, R.id.tvEventTest, R.id.tvService, R.id.tvLazyLoadFragment, R.id.tvCoordinatorLayout, R.id.tvAd})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.tvMerge:
@@ -144,6 +145,10 @@ public class MenuActivity extends AppCompatActivity {
 
             case R.id.tvCoordinatorLayout:
                 startActivity(new Intent(this, CoordinatorLayoutActivity.class));
+                break;
+
+            case R.id.tvAd:
+                startActivity(new Intent(this, AdActivity.class));
                 break;
         }
     }

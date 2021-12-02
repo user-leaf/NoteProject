@@ -14,6 +14,7 @@ import com.scwang.smart.refresh.layout.listener.DefaultRefreshFooterCreator;
 import com.scwang.smart.refresh.layout.listener.DefaultRefreshHeaderCreator;
 import com.sesame.module_base.AppCompat;
 import com.sesame.module_base.AppConfig;
+import com.sesame.noteproject.ad_dialog.AdsManager;
 
 public class MainApplication extends Application {
 

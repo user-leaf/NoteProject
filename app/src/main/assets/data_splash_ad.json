@@ -1,0 +1,28 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "type":"text",
+      "content": "今天有雨",
+      "imgUrl": ""
+    },
+    {
+      "id": 2,
+      "type":"text",
+      "content": "记得带伞",
+      "imgUrl": ""
+    },
+    {
+      "id": 3,
+      "type":"image",
+      "content": "",
+      "imgUrl": "https://img2.baidu.com/it/u=2285567582,1185119578&fm=26&fmt=auto"
+    },
+    {
+      "id": 4,
+      "type":"image",
+      "content": "",
+      "imgUrl": "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fup.enterdesk.com%2Fedpic%2F12%2F51%2Fdf%2F1251df324d33fec3e06403353785cf29.jpg&refer=http%3A%2F%2Fup.enterdesk.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1641027097&t=d2d9cada3903b260d4b7bb2ea7f63859"
+    }
+  ]
+}

@@ -15,10 +15,6 @@
         android:roundIcon="${logo}"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <service
-            android:name=".service.MyIntentService"
-            android:exported="false"></service>
-
         <activity android:name=".material_design.MaterialDesignActivity" />
         <activity android:name=".MainActivity" />
         <activity android:name=".CoordinatorLayoutActivity" />
@@ -71,6 +67,9 @@
         <activity android:name=".uri.UriActivity" />
         <activity android:name=".service.ServiceDemoActivity" />
         <activity android:name=".lazyfragment.LazyActivity" />
+        <activity android:name=".ad_dialog.AdActivity" >
+
+        </activity>
 
         <service
             android:name=".service.MyService"
