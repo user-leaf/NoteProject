@@ -31,7 +31,6 @@
         <activity android:name=".learning.KotlinFunctionActivity" />
         <activity android:name=".jetpack.room.RoomDemoActivity" />
         <activity android:name=".module.LoginActivity" />
-        <activity android:name=".flow.FlowDemoActivity" />
         <activity android:name=".coroutine.CoroutineDemoActivity" />
         <activity android:name=".coroutine_demo.PersonalPageActivity" />
 
