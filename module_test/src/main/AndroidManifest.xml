@@ -10,25 +10,31 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.NoteProject">
+        <service
+            android:name=".test_android_service_connection.ConnService"
+            android:enabled="true"
+            android:exported="false" />
+
         <activity
             android:name=".test_android_fragment.BottomNavigationActivity"
             android:exported="true"
-            android:label="@string/title_activity_bottom_navigation" >
+            android:label="@string/title_activity_bottom_navigation">
+
+        </activity>
+        <activity
+            android:name=".test_android_fragment.ArgumentActivity"
+            android:exported="true"></activity>
+        <activity android:name=".ModuleTestActivity" />
+        <activity android:name=".test1.SWDemoActivity" />
+        <activity android:name=".test1.Thread2Activity" />
+        <activity android:name=".test1.ThreadActivity" />
+        <activity android:name=".test_android_service_connection.ServiceActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".test_android_fragment.ArgumentActivity"
-            android:exported="true">
-
-        </activity>
-        <activity android:name=".ModuleTestActivity" />
-        <activity android:name=".test1.SWDemoActivity" />
-        <activity android:name=".test1.Thread2Activity"></activity>
-        <activity android:name=".test1.ThreadActivity" />
     </application>
 
 </manifest>
