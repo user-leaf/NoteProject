@@ -1,6 +1,7 @@
 package com.imooc.app.update.ui;
 
 import android.app.Dialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -22,7 +23,7 @@ import com.imooc.app.update.utils.AppUtils;
 
 import java.io.File;
 
-public class UpdateVersionShowDialog extends DialogFragment {
+public class UpdateVersionShowDialog extends DialogFragment { // 有点类似自定义view
 
     private static final String TAG = UpdateVersionShowDialog.class.getSimpleName();
     private static final String KEY_DOWNLOAD_BEAN = "download_bean";
@@ -95,9 +96,16 @@ public class UpdateVersionShowDialog extends DialogFragment {
                         v.setEnabled(true);
                         Toast.makeText(getActivity(), "文件下载失败", Toast.LENGTH_SHORT).show();
                     }
-                });
+                }, UpdateVersionShowDialog.this);// 不是this，是UpdateVersionShowDialog.this，前者是匿名内部类的对象
             }
         });
+    }
+
+    @Override
+    public void onDismiss(@NonNull DialogInterface dialog) {
+        super.onDismiss(dialog);
+        Log.d(TAG, "onDismiss: ");
+        AppUpdater.getInstance().getNetManager().cancel(this);
     }
 
     // 和onCreateView二选一，这里选择onCreateView

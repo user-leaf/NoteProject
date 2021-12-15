@@ -1,7 +1,6 @@
 package com.imooc.app;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -11,11 +10,8 @@ import com.google.gson.Gson;
 import com.imooc.app.update.AppUpdater;
 import com.imooc.app.update.bean.DownloadBean;
 import com.imooc.app.update.net.INetCallback;
-import com.imooc.app.update.net.INetDownloadCallback;
 import com.imooc.app.update.ui.UpdateVersionShowDialog;
 import com.imooc.app.update.utils.AppUtils;
-
-import java.io.File;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -74,8 +70,14 @@ public class MainActivity extends AppCompatActivity {
                         throwable.printStackTrace();
                         Toast.makeText(MainActivity.this, "版本更新接口请求失败", Toast.LENGTH_SHORT).show();
                     }
-                });
+                }, MainActivity.this);
             }
         });
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        AppUpdater.getInstance().getNetManager().cancel(this);
     }
 }

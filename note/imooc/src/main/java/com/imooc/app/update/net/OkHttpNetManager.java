@@ -2,6 +2,7 @@ package com.imooc.app.update.net;
 
 import android.os.Handler;
 import android.os.Looper;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 
@@ -10,6 +11,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.Call;
@@ -20,6 +22,7 @@ import okhttp3.Response;
 
 public class OkHttpNetManager implements INetManager {
 
+    private static final String TAG = OkHttpNetManager.class.getSimpleName();
     private static OkHttpClient sOkHttpClient;
 
     private static Handler sHandler = new Handler(Looper.getMainLooper());
@@ -32,10 +35,10 @@ public class OkHttpNetManager implements INetManager {
     }
 
     @Override
-    public void get(String url, INetCallback callback) {
+    public void get(String url, INetCallback callback, Object tag) {
         // requestbuilder -> Request -> Call -> execute/enqueue
         Request.Builder builder = new Request.Builder();
-        Request request = builder.url(url).get().build();
+        Request request = builder.url(url).get().tag(tag).build();
         Call call = sOkHttpClient.newCall(request);
 //        Response response = call.execute();
         call.enqueue(new Callback() {
@@ -68,12 +71,12 @@ public class OkHttpNetManager implements INetManager {
     }
 
     @Override
-    public void download(String url, File targetFile, INetDownloadCallback callback) {
+    public void download(String url, File targetFile, INetDownloadCallback callback, Object tag) {
         if (!targetFile.exists()) {
             targetFile.getParentFile().mkdirs();
         }
         Request.Builder builder = new Request.Builder();
-        Request request = builder.url(url).get().build();
+        Request request = builder.url(url).get().tag(tag).build();
         Call call = sOkHttpClient.newCall(request);
         call.enqueue(new Callback() {
             @Override
@@ -101,7 +104,7 @@ public class OkHttpNetManager implements INetManager {
                     long curLen = 0;
 
                     int bufferLen = 0;
-                    while ((bufferLen = is.read(buffer)) != -1) {
+                    while (!call.isCanceled() && (bufferLen = is.read(buffer)) != -1) {
                         os.write(buffer, 0, bufferLen);
                         os.flush();
                         curLen += bufferLen;
@@ -113,6 +116,9 @@ public class OkHttpNetManager implements INetManager {
                                 callback.progress((int) (finalCurLen * 1.0f / totalLen * 100));
                             }
                         });
+                    }
+                    if (call.isCanceled()){
+                        return;
                     }
                     // 文件有"所有者"这个概念
                     // 需要暴露给系统安装程序去安装，即我的文件需要暴露给别的进程去访问。
@@ -131,6 +137,9 @@ public class OkHttpNetManager implements INetManager {
                         }
                     });
                 } catch (Throwable e) {
+                    if (call.isCanceled()) {
+                        return;
+                    }
                     e.printStackTrace();
                     sHandler.post(new Runnable() {
                         @Override
@@ -148,5 +157,29 @@ public class OkHttpNetManager implements INetManager {
                 }
             }
         });
+    }
+
+    @Override
+    public void cancel(Object tag) {
+        List<Call> queuedCalls = sOkHttpClient.dispatcher().queuedCalls();
+        if (queuedCalls != null) {
+            for (Call call : queuedCalls) {
+                if (tag.equals(call.request().tag())) {
+                    Log.d(TAG, "find call = " + tag);
+                    call.cancel();
+                }
+            }
+        }
+
+        List<Call> runningCalls = sOkHttpClient.dispatcher().runningCalls();
+        if (runningCalls != null) {
+            for (Call call : runningCalls) {
+                if (tag.equals(call.request().tag())) {
+                    Log.d(TAG, "find call = " + tag);
+                    call.cancel();
+                }
+            }
+        }
+
     }
 }
