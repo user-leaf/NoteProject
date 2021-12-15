@@ -11,6 +11,10 @@ import android.os.Build;
 import androidx.core.content.FileProvider;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.math.BigInteger;
+import java.security.MessageDigest;
 
 public class AppUtils {
     public static long getVersionCode(Context context) {
@@ -45,5 +49,36 @@ public class AppUtils {
         activity.startActivity(intent);
         // O INSTALL PERMISSION的适配
         // 清单文件里添加一个权限即可，比较简单
+    }
+
+    public static String getFileMd5(File targetFile) {
+        if (targetFile == null || !targetFile.isFile()) {
+            return null;
+        }
+        MessageDigest digest = null;
+        FileInputStream in = null;
+        byte[] buffer = new byte[1024];
+        int len = 0;
+        try {
+            digest = MessageDigest.getInstance("MD5");
+            in = new FileInputStream(targetFile);
+            while ((len = in.read(buffer)) != -1) {
+                digest.update(buffer, 0, len);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (in != null) {
+                try {
+                    in.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+        byte[] result = digest.digest();
+        BigInteger bigInteger = new BigInteger(1, result);
+        return bigInteger.toString(16);
     }
 }

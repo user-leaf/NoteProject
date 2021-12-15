@@ -1,14 +1,11 @@
 package com.imooc.app.update.ui;
 
 import android.app.Dialog;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -53,8 +50,8 @@ public class UpdateVersionShowDialog extends DialogFragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         // 正常dialog是应该写theme的，这里偷个懒
-    //        getDialog().requestWindowFeature(Window.FEATURE_NO_TITLE);
-    //        getDialog().getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        //        getDialog().requestWindowFeature(Window.FEATURE_NO_TITLE);
+        //        getDialog().getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
     }
 
     private void bindEvents(View view) {
@@ -76,14 +73,20 @@ public class UpdateVersionShowDialog extends DialogFragment {
                         v.setEnabled(true);
                         dismiss();
                         // TODO: 2021/12/15 check md5
-                        AppUtils.installApk(getActivity(), apkFile);
+                        String fileMd5 = AppUtils.getFileMd5(targetFile);
+                        Log.d(TAG, "md5 = " + fileMd5);
+                        if (fileMd5 != null && fileMd5.equals(mDownloadBean.md5)) {
+                            AppUtils.installApk(getActivity(), apkFile);
+                        } else {
+                            Toast.makeText(getActivity(), "md5 检测失败", Toast.LENGTH_SHORT).show();
+                        }
                     }
 
                     @Override
                     public void progress(int progress) {
                         // 更新界面的代码
                         Log.d(TAG, "progress: " + progress);
-                        tvUpdate.setText(progress+"%");
+                        tvUpdate.setText(progress + "%");
                     }
 
                     @Override
