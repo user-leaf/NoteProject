@@ -1,6 +1,8 @@
 package com.imooc.app.update.bean;
 
-public class DownloadBean {
+import java.io.Serializable;
+
+public class DownloadBean implements Serializable {
 
     public String title;
     public String content;

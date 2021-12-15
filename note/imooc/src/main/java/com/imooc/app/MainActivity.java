@@ -12,6 +12,8 @@ import com.imooc.app.update.AppUpdater;
 import com.imooc.app.update.bean.DownloadBean;
 import com.imooc.app.update.net.INetCallback;
 import com.imooc.app.update.net.INetDownloadCallback;
+import com.imooc.app.update.ui.UpdateVersionShowDialog;
+import com.imooc.app.update.utils.AppUtils;
 
 import java.io.File;
 
@@ -45,26 +47,26 @@ public class MainActivity extends AppCompatActivity {
                         // 4. 点击下载
 
                         DownloadBean bean = new Gson().fromJson(response, DownloadBean.class);
-                        File targetFile = new File(getCacheDir(), "target.apk");
-                        AppUpdater.getInstance().getNetManager().download(bean.url, targetFile, new INetDownloadCallback() {
-                            @Override
-                            public void success(File apkFile) {
-                                // 安装的代码
-                                Log.d(TAG, "success: " + apkFile.getAbsolutePath());
-                            }
+                        if (bean == null) {
+                            Toast.makeText(MainActivity.this, "版本检测接口返回数据异常", Toast.LENGTH_SHORT).show();
+                            return;
+                        }
 
-                            @Override
-                            public void progress(int progress) {
-                                // 更新界面的代码
-                                Log.d(TAG, "progress: " + progress);
+                        // 检测：是否需要弹框
+                        try {
+                            long versionCode = Long.parseLong(bean.versionCode);
+                            if (versionCode <= AppUtils.getVersionCode(MainActivity.this)) {
+                                Toast.makeText(MainActivity.this, "已经是最新版本，无需更新", Toast.LENGTH_SHORT).show();
+                                return;
                             }
+                        } catch (NumberFormatException e) {
+                            e.printStackTrace();
+                            Toast.makeText(MainActivity.this, "版本检测接口返回版本号异常", Toast.LENGTH_SHORT).show();
+                            return;
+                        }
 
-                            @Override
-                            public void failed(Throwable throwable) {
-                                Log.d(TAG, "failed: ");
-                                Toast.makeText(MainActivity.this, "文件下载失败", Toast.LENGTH_SHORT).show();
-                            }
-                        });
+                        // 3. 弹框
+                        UpdateVersionShowDialog.show(MainActivity.this, bean);
                     }
 
                     @Override
