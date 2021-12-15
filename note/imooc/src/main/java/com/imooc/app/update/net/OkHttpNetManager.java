@@ -6,7 +6,10 @@ import android.os.Looper;
 import androidx.annotation.NonNull;
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.Call;
@@ -56,7 +59,7 @@ public class OkHttpNetManager implements INetManager {
                             callback.success(string);
                         }
                     });
-                }catch (Throwable throwable){
+                } catch (Throwable throwable) {
                     throwable.printStackTrace();
                     callback.failed(throwable);
                 }
@@ -66,6 +69,84 @@ public class OkHttpNetManager implements INetManager {
 
     @Override
     public void download(String url, File targetFile, INetDownloadCallback callback) {
+        if (!targetFile.exists()) {
+            targetFile.getParentFile().mkdirs();
+        }
+        Request.Builder builder = new Request.Builder();
+        Request request = builder.url(url).get().build();
+        Call call = sOkHttpClient.newCall(request);
+        call.enqueue(new Callback() {
+            @Override
+            public void onFailure(@NonNull Call call, @NonNull IOException e) {
+                sHandler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        callback.failed(e);
+                    }
+                });
+            }
 
+            @Override
+            public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
+                // 文件的保存
+                InputStream is = null;
+                OutputStream os = null;
+                try {
+                    final long totalLen = response.body().contentLength();
+
+                    is = response.body().byteStream();
+                    os = new FileOutputStream(targetFile);
+
+                    byte[] buffer = new byte[8 * 1024];
+                    long curLen = 0;
+
+                    int bufferLen = 0;
+                    while ((bufferLen = is.read(buffer)) != -1) {
+                        os.write(buffer, 0, bufferLen);
+                        os.flush();
+                        curLen += bufferLen;
+
+                        long finalCurLen = curLen;
+                        sHandler.post(new Runnable() {
+                            @Override
+                            public void run() {
+                                callback.progress((int) (finalCurLen * 1.0f / totalLen * 100));
+                            }
+                        });
+                    }
+                    // 文件有"所有者"这个概念
+                    // 需要暴露给系统安装程序去安装，即我的文件需要暴露给别的进程去访问。
+                    try {
+                        // 文件设置可读、可写、可执行
+                        targetFile.setExecutable(true, false);
+                        targetFile.setReadable(true, false);
+                        targetFile.setWritable(true, false);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    sHandler.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            callback.success(targetFile);
+                        }
+                    });
+                } catch (Throwable e) {
+                    e.printStackTrace();
+                    sHandler.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            callback.failed(e);
+                        }
+                    });
+                } finally {
+                    if (is != null) {
+                        is.close();
+                    }
+                    if (os != null) {
+                        os.close();
+                    }
+                }
+            }
+        });
     }
 }
