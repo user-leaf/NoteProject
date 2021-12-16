@@ -9,13 +9,16 @@ import android.graphics.Path;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
 import android.util.AttributeSet;
+import android.view.GestureDetector;
+import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
 public class MyProgressView extends View {
-    private int width = 100;
-    private int height = 100;
+    private int width = 200;
+    private int height = 200;
     private Paint mCirclePaint;
     private Paint mProgressPaint;
     private Paint mTextPaint;
@@ -24,6 +27,7 @@ public class MyProgressView extends View {
     private Path path = new Path();
     private int progress = 50;
     private int max = 100;
+    private GestureDetector mDetector;
 
     public MyProgressView(Context context) {
         super(context);
@@ -59,6 +63,30 @@ public class MyProgressView extends View {
         // 创建一个空图片
         mBitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
         mBitmapCanvas = new Canvas(mBitmap); // 创建一个画布
+
+        mDetector = new GestureDetector(new MyGestureDetectorListener());
+        setOnTouchListener(new OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+
+                return mDetector.onTouchEvent(event);
+            }
+        });
+        setClickable(true);
+    }
+
+    class MyGestureDetectorListener extends GestureDetector.SimpleOnGestureListener{
+        @Override
+        public boolean onDoubleTap(MotionEvent e) {
+            Toast.makeText(getContext(), "双击了", Toast.LENGTH_SHORT).show();
+            return super.onDoubleTap(e);
+        }
+
+        @Override
+        public boolean onSingleTapConfirmed(MotionEvent e) {
+            Toast.makeText(getContext(), "单击了", Toast.LENGTH_SHORT).show();
+            return super.onSingleTapConfirmed(e);
+        }
     }
 
     @Override
@@ -76,7 +104,7 @@ public class MyProgressView extends View {
         path.lineTo(0, height); // 连接到左下角
         path.lineTo(0, y);// 平行
         // 画贝塞尔曲线3次
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 5; i++) {
             path.rQuadTo(10, -10, 20, 0);
             path.rQuadTo(10, 10, 20, 0);
         }
