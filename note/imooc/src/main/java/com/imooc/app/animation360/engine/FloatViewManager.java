@@ -6,6 +6,7 @@ import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.Toast;
 
 import com.imooc.app.animation360.view.FloatCircleView;
 
@@ -68,6 +69,14 @@ public class FloatViewManager {
         mWindowManager = (WindowManager) mContext.getSystemService(Context.WINDOW_SERVICE);
         mCircleView = new FloatCircleView(context);
         mCircleView.setOnTouchListener(mCircleViewTouchListener);
+        mCircleView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(context, "onclick", Toast.LENGTH_SHORT).show();
+                // 隐藏circleView，同时显示菜单栏，同时开启动画，从下往上滑出来的动画
+
+            }
+        });
     }
 
     private static FloatViewManager instance;
