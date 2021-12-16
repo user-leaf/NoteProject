@@ -34,6 +34,7 @@ public class FloatViewManager {
                     float dy = y - mStartY;
                     mParams.x += dx;
                     mParams.y += dy;
+                    mCircleView.setDragState(true);
                     mWindowManager.updateViewLayout(mCircleView, mParams);
                     mStartX = x;
                     mStartY = y;
@@ -46,6 +47,7 @@ public class FloatViewManager {
                     } else {
                         mParams.x = 0;
                     }
+                    mCircleView.setDragState(false);
                     mWindowManager.updateViewLayout(mCircleView, mParams);
                     break;
                 default:
