@@ -1,4 +1,4 @@
-package com.imooc.app;
+package com.imooc.app.update;
 
 import android.os.Bundle;
 import android.view.View;
@@ -7,15 +7,15 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.gson.Gson;
-import com.imooc.app.update.AppUpdater;
+import com.imooc.app.R;
 import com.imooc.app.update.bean.DownloadBean;
 import com.imooc.app.update.net.INetCallback;
 import com.imooc.app.update.ui.UpdateVersionShowDialog;
 import com.imooc.app.update.utils.AppUtils;
 
-public class MainActivity extends AppCompatActivity {
+public class UpdateActivity extends AppCompatActivity {
 
-    private static final String TAG = MainActivity.class.getSimpleName();
+    private static final String TAG = UpdateActivity.class.getSimpleName();
     private View mBtnUpdate;
 
     @Override
@@ -44,33 +44,33 @@ public class MainActivity extends AppCompatActivity {
 
                         DownloadBean bean = new Gson().fromJson(response, DownloadBean.class);
                         if (bean == null) {
-                            Toast.makeText(MainActivity.this, "版本检测接口返回数据异常", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(UpdateActivity.this, "版本检测接口返回数据异常", Toast.LENGTH_SHORT).show();
                             return;
                         }
 
                         // 检测：是否需要弹框
                         try {
                             long versionCode = Long.parseLong(bean.versionCode);
-                            if (versionCode <= AppUtils.getVersionCode(MainActivity.this)) {
-                                Toast.makeText(MainActivity.this, "已经是最新版本，无需更新", Toast.LENGTH_SHORT).show();
+                            if (versionCode <= AppUtils.getVersionCode(UpdateActivity.this)) {
+                                Toast.makeText(UpdateActivity.this, "已经是最新版本，无需更新", Toast.LENGTH_SHORT).show();
                                 return;
                             }
                         } catch (NumberFormatException e) {
                             e.printStackTrace();
-                            Toast.makeText(MainActivity.this, "版本检测接口返回版本号异常", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(UpdateActivity.this, "版本检测接口返回版本号异常", Toast.LENGTH_SHORT).show();
                             return;
                         }
 
                         // 3. 弹框
-                        UpdateVersionShowDialog.show(MainActivity.this, bean);
+                        UpdateVersionShowDialog.show(UpdateActivity.this, bean);
                     }
 
                     @Override
                     public void failed(Throwable throwable) {
                         throwable.printStackTrace();
-                        Toast.makeText(MainActivity.this, "版本更新接口请求失败", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(UpdateActivity.this, "版本更新接口请求失败", Toast.LENGTH_SHORT).show();
                     }
-                }, MainActivity.this);
+                }, UpdateActivity.this);
             }
         });
     }
