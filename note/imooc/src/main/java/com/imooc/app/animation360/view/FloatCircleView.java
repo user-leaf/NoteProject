@@ -18,11 +18,11 @@ public class FloatCircleView extends View {
     private String text = "50%";
 
     public FloatCircleView(Context context) {
-        super(context);
+        this(context, null);
     }
 
     public FloatCircleView(Context context, @Nullable AttributeSet attrs) {
-        super(context, attrs);
+        this(context, attrs, 0);
     }
 
     public FloatCircleView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
