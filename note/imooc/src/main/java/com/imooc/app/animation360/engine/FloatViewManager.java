@@ -17,6 +17,8 @@ public class FloatViewManager {
     private final WindowManager mWindowManager; // 通过这个windowmanager来操控浮窗体的显示和隐藏以及位置的改变
     private View.OnTouchListener mCircleViewTouchListener = new View.OnTouchListener() {
 
+        private float y0;
+        private float x0;
         private float mStartX;
         private float mStartY;
 
@@ -26,6 +28,8 @@ public class FloatViewManager {
             switch (event.getAction()) {
                 case MotionEvent.ACTION_DOWN:
                     mStartX = event.getRawX();
+                    x0 = event.getRawX();
+                    y0 = event.getRawY();
                     mStartY = event.getRawY();
                     break;
                 case MotionEvent.ACTION_MOVE:
@@ -50,7 +54,11 @@ public class FloatViewManager {
                     }
                     mCircleView.setDragState(false);
                     mWindowManager.updateViewLayout(mCircleView, mParams);
-                    break;
+                    if (Math.abs(x1 - x0) > 6) { // 说明是拖拽事件，消费掉
+                        return true;
+                    } else {
+                        return false;
+                    }
                 default:
                     break;
             }
