@@ -11,8 +11,4 @@
         android:onClick="startService"
         />
 
-    <com.imooc.app.animation360.view.MyProgressView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        />
 </LinearLayout>
