@@ -8,6 +8,8 @@ import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
+import android.os.Handler;
+import android.os.Message;
 import android.util.AttributeSet;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
@@ -27,6 +29,15 @@ public class MyProgressView extends View {
     private Path path = new Path();
     private int progress = 50;
     private int max = 100;
+    private int currentProgress = 0;
+
+    private Handler mHandler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+        }
+    };
+
     private GestureDetector mDetector;
 
     public MyProgressView(Context context) {
@@ -64,21 +75,26 @@ public class MyProgressView extends View {
         mBitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
         mBitmapCanvas = new Canvas(mBitmap); // 创建一个画布
 
-        mDetector = new GestureDetector(new MyGestureDetectorListener());
+        new GestureDetector(getContext(), new GestureDetector.SimpleOnGestureListener() {
+
+        });
+
+        mDetector = new GestureDetector(getContext(), new MyGestureDetectorListener());
         setOnTouchListener(new OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-
                 return mDetector.onTouchEvent(event);
             }
         });
+
         setClickable(true);
     }
 
-    class MyGestureDetectorListener extends GestureDetector.SimpleOnGestureListener{
+    class MyGestureDetectorListener extends GestureDetector.SimpleOnGestureListener {
         @Override
         public boolean onDoubleTap(MotionEvent e) {
             Toast.makeText(getContext(), "双击了", Toast.LENGTH_SHORT).show();
+            startDoubleTapAnimation();
             return super.onDoubleTap(e);
         }
 
@@ -86,6 +102,27 @@ public class MyProgressView extends View {
         public boolean onSingleTapConfirmed(MotionEvent e) {
             Toast.makeText(getContext(), "单击了", Toast.LENGTH_SHORT).show();
             return super.onSingleTapConfirmed(e);
+        }
+    }
+
+    private void startDoubleTapAnimation() {
+        mHandler.postDelayed(mDoubleTapRunnable, 50);
+    }
+
+    private DoubleTapRunnable mDoubleTapRunnable = new DoubleTapRunnable();
+
+    class DoubleTapRunnable implements Runnable {
+
+        @Override
+        public void run() {
+            currentProgress++;
+            if (currentProgress <= progress) {
+                invalidate();
+                mHandler.postDelayed(mDoubleTapRunnable, 50);
+            } else {
+                mHandler.removeCallbacks(mDoubleTapRunnable);
+                currentProgress = 0;
+            }
         }
     }
 
@@ -98,19 +135,20 @@ public class MyProgressView extends View {
     protected void onDraw(Canvas canvas) {
         mBitmapCanvas.drawCircle(width / 2, height / 2, width / 2, mCirclePaint);
         path.reset();
-        float y = (1 - (float) progress / max) * height;
+        float y = (1 - (float) currentProgress / max) * height;
         path.moveTo(width, y);
         path.lineTo(width, height);// 连接到右下角
         path.lineTo(0, height); // 连接到左下角
         path.lineTo(0, y);// 平行
         // 画贝塞尔曲线3次
+        float d = (1 - ((float) currentProgress / progress)) * 10;
         for (int i = 0; i < 5; i++) {
-            path.rQuadTo(10, -10, 20, 0);
-            path.rQuadTo(10, 10, 20, 0);
+            path.rQuadTo(10, -d, 20, 0);
+            path.rQuadTo(10, d, 20, 0);
         }
         path.close();
         mBitmapCanvas.drawPath(path, mProgressPaint);
-        String text = (int) (((float) progress / max) * 100) + "%";
+        String text = (int) (((float) currentProgress / max) * 100) + "%";
         float textWidth = mTextPaint.measureText(text);
         Paint.FontMetrics fontMetrics = mTextPaint.getFontMetrics();
         float baseLine = height / 2 - (fontMetrics.ascent + fontMetrics.descent) / 2;

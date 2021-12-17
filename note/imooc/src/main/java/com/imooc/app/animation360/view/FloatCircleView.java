@@ -49,7 +49,7 @@ public class FloatCircleView extends View {
 
         Bitmap src = BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher_round);
         // 缩放到小球大小
-        // todo bitmap
+        // todo bitmap 对bitmap的功能不太懂，能用来干什么
         mBitmap = Bitmap.createScaledBitmap(src, width, height, true);// filter: 是否保留状态
     }
 
