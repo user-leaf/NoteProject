@@ -30,6 +30,7 @@ public class MyProgressView extends View {
     private int progress = 50;
     private int max = 100;
     private int currentProgress = 0;
+    private int count = 50;
 
     private Handler mHandler = new Handler() {
         @Override
@@ -39,6 +40,7 @@ public class MyProgressView extends View {
     };
 
     private GestureDetector mDetector;
+    private boolean isSingleTag = false;
 
     public MyProgressView(Context context) {
         super(context);
@@ -75,10 +77,6 @@ public class MyProgressView extends View {
         mBitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
         mBitmapCanvas = new Canvas(mBitmap); // 创建一个画布
 
-        new GestureDetector(getContext(), new GestureDetector.SimpleOnGestureListener() {
-
-        });
-
         mDetector = new GestureDetector(getContext(), new MyGestureDetectorListener());
         setOnTouchListener(new OnTouchListener() {
             @Override
@@ -101,7 +99,31 @@ public class MyProgressView extends View {
         @Override
         public boolean onSingleTapConfirmed(MotionEvent e) {
             Toast.makeText(getContext(), "单击了", Toast.LENGTH_SHORT).show();
+            isSingleTag = true;
+            currentProgress = progress;
+            startSingleTapAnimation();
             return super.onSingleTapConfirmed(e);
+        }
+    }
+
+    private void startSingleTapAnimation() {
+        mHandler.postDelayed(mSingleTapRunnable, 200);
+    }
+
+    private SingleTapRunnable mSingleTapRunnable = new SingleTapRunnable();
+
+    class SingleTapRunnable implements Runnable {
+
+        @Override
+        public void run() {
+            count--;
+            if (count >= 0) {
+                invalidate();
+                mHandler.postDelayed(mSingleTapRunnable, 200);
+            } else {
+                mHandler.removeCallbacks(mSingleTapRunnable);
+                count = 50;
+            }
         }
     }
 
@@ -140,12 +162,30 @@ public class MyProgressView extends View {
         path.lineTo(width, height);// 连接到右下角
         path.lineTo(0, height); // 连接到左下角
         path.lineTo(0, y);// 平行
-        // 画贝塞尔曲线3次
-        float d = (1 - ((float) currentProgress / progress)) * 10;
-        for (int i = 0; i < 5; i++) {
-            path.rQuadTo(10, -d, 20, 0);
-            path.rQuadTo(10, d, 20, 0);
+
+        if (!isSingleTag) {
+            // 画贝塞尔曲线3次
+            float d = (1 - ((float) currentProgress / progress)) * 10;
+            for (int i = 0; i < 5; i++) {
+                path.rQuadTo(10, -d, 20, 0);
+                path.rQuadTo(10, d, 20, 0);
+            }
+        } else {
+            // 振幅减小
+            float d = (float) count / 50 * 10;
+            if (count % 2 == 0) {
+                for (int i = 0; i < 5; i++) {
+                    path.rQuadTo(20, -d, 40, 0);
+                    path.rQuadTo(20, d, 40, 0);
+                }
+            } else {
+                for (int i = 0; i < 5; i++) {
+                    path.rQuadTo(20, d, 40, 0);
+                    path.rQuadTo(20, -d, 40, 0);
+                }
+            }
         }
+
         path.close();
         mBitmapCanvas.drawPath(path, mProgressPaint);
         String text = (int) (((float) currentProgress / max) * 100) + "%";
