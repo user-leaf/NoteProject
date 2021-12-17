@@ -9,6 +9,9 @@ import android.view.WindowManager;
 import android.widget.Toast;
 
 import com.imooc.app.animation360.view.FloatCircleView;
+import com.imooc.app.animation360.view.FloatMenuView;
+
+import java.lang.reflect.Field;
 
 public class FloatViewManager {
 
@@ -65,9 +68,27 @@ public class FloatViewManager {
             return false;
         }
     };
+    private final FloatMenuView mFloatMenuView;
 
     public int getScreenWidth() {
         return mWindowManager.getDefaultDisplay().getWidth(); // todo
+    }
+
+    public int getScreenHeight() {
+        return mWindowManager.getDefaultDisplay().getHeight();
+    }
+
+    public int getStatusHeight() {
+        try {
+
+            Class<?> c = Class.forName("com.android.internal.R$dimen");
+            Object o = c.newInstance();
+            Field field = c.getField("status_bar_height");
+            int x = (int) field.get(o);
+            return mContext.getResources().getDimensionPixelSize(x);
+        } catch (Exception e) {
+            return 0;
+        }
     }
 
     private WindowManager.LayoutParams mParams;
@@ -80,11 +101,27 @@ public class FloatViewManager {
         mCircleView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context, "onclick", Toast.LENGTH_SHORT).show();
                 // 隐藏circleView，同时显示菜单栏，同时开启动画，从下往上滑出来的动画
-
+                mWindowManager.removeView(mCircleView);
+                showFloatMenuView();
+                mFloatMenuView.startAnimation();
             }
         });
+        mFloatMenuView = new FloatMenuView(context);
+    }
+
+    private void showFloatMenuView() {
+        WindowManager.LayoutParams params = new WindowManager.LayoutParams();
+        params.width = getScreenWidth();
+        params.height = getScreenHeight() - getStatusHeight();
+        params.gravity = Gravity.BOTTOM | Gravity.LEFT;
+        params.x = 0;
+        params.y = 0;
+        params.type = WindowManager.LayoutParams.TYPE_PHONE; // 像手机打电话界面始终处在最上方
+        params.flags = WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE
+                | WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL;// 特征 不去抢焦点
+        params.format = PixelFormat.RGBA_8888; // 背景透明
+        mWindowManager.addView(mFloatMenuView, params);
     }
 
     private static FloatViewManager instance;
@@ -104,16 +141,22 @@ public class FloatViewManager {
      * 展示浮窗小球到窗口上
      */
     public void showFloatCircleView() {
-        mParams = new WindowManager.LayoutParams();
-        mParams.width = mCircleView.width;
-        mParams.height = mCircleView.height;
-        mParams.gravity = Gravity.TOP | Gravity.LEFT;
-        mParams.x = 0;
-        mParams.y = 0;
-        mParams.type = WindowManager.LayoutParams.TYPE_PHONE; // 像手机打电话界面始终处在最上方
-        mParams.flags = WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE
-                | WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL;// 特征 不去抢焦点
-        mParams.format = PixelFormat.RGBA_8888; // 背景透明
+        if (mParams == null) {
+            mParams = new WindowManager.LayoutParams();
+            mParams.width = mCircleView.width;
+            mParams.height = mCircleView.height;
+            mParams.gravity = Gravity.TOP | Gravity.LEFT;
+            mParams.x = 0;
+            mParams.y = 0;
+            mParams.type = WindowManager.LayoutParams.TYPE_PHONE; // 像手机打电话界面始终处在最上方
+            mParams.flags = WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE
+                    | WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL;// 特征 不去抢焦点
+            mParams.format = PixelFormat.RGBA_8888; // 背景透明
+        }
         mWindowManager.addView(mCircleView, mParams);
+    }
+
+    public void hideFloatMenuView() {
+        mWindowManager.removeView(mFloatMenuView);
     }
 }

@@ -91,14 +91,12 @@ public class MyProgressView extends View {
     class MyGestureDetectorListener extends GestureDetector.SimpleOnGestureListener {
         @Override
         public boolean onDoubleTap(MotionEvent e) {
-            Toast.makeText(getContext(), "双击了", Toast.LENGTH_SHORT).show();
             startDoubleTapAnimation();
             return super.onDoubleTap(e);
         }
 
         @Override
         public boolean onSingleTapConfirmed(MotionEvent e) {
-            Toast.makeText(getContext(), "单击了", Toast.LENGTH_SHORT).show();
             isSingleTag = true;
             currentProgress = progress;
             startSingleTapAnimation();
