@@ -28,7 +28,10 @@
         <activity android:name=".test1.SWDemoActivity" />
         <activity android:name=".test1.Thread2Activity" />
         <activity android:name=".test1.ThreadActivity" />
-        <activity android:name=".test_android_service_connection.ServiceActivity" >
+        <activity android:name=".test_android_service_connection.ServiceActivity">
+
+        </activity>
+        <activity android:name=".test_android_gesture.GestureActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
