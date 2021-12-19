@@ -1,5 +1,7 @@
 plugins {
     id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-android-extensions'
 }
 
 android {
@@ -7,7 +9,8 @@ android {
 
     defaultConfig {
         applicationId "com.note.light"
-        minSdkVersion 21
+        minSdkVersion 23
+
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
@@ -35,5 +38,8 @@ dependencies {
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
+    implementation project(path: ':module_base')
+    implementation 'com.android.support:palette-v7:28.+'
 
 }
