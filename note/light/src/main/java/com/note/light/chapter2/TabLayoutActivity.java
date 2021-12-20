@@ -1,6 +1,8 @@
 package com.note.light.chapter2;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -8,6 +10,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
 import com.note.light.R;
 
@@ -57,7 +60,6 @@ public class TabLayoutActivity extends AppCompatActivity {
         1、ViewPager
         2、TabLayout
             title哪来的
-            PagerAdapter有FragmentPagerAdapter和FragmentStatePagerAdapter
             FragmentPagerAdapter与FragmentStatePagerAdapter什么区别
          */
 
@@ -65,6 +67,20 @@ public class TabLayoutActivity extends AppCompatActivity {
         mViewPager.setAdapter(myPagerAdapter);
         mTabLayout.setupWithViewPager(mViewPager);
 //        mTabLayout.setTabsFromPagerAdapter(viewPagerAdapter); //??
+
+        findViewById(R.id.fab).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Snackbar.make(v, "haha", Snackbar.LENGTH_SHORT)
+                        .setAction("知道了", new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                Toast.makeText(TabLayoutActivity.this, "hehe", Toast.LENGTH_SHORT).show();
+                            }
+                        })
+                        .show();
+            }
+        });
 
     }
 }
