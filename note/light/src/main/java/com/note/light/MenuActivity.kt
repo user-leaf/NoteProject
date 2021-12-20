@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.note.light.chapter1.Chapter1Activity
 import com.note.light.chapter2.Chapter2Activity
+import com.note.light.chapter2.TabLayoutActivity
 import kotlinx.android.synthetic.main.activity_menu.*
 
 class MenuActivity : AppCompatActivity() {
@@ -13,6 +14,7 @@ class MenuActivity : AppCompatActivity() {
     enum class MenuItem(var clazz: Class<*>) {
         第1章_Android新特性(Chapter1Activity::class.java),
         第2章_MaterialDesign(Chapter2Activity::class.java),
+        TabLayout的使用(TabLayoutActivity::class.java),
         ;
 
         companion object {
