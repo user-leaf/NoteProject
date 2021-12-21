@@ -26,6 +26,7 @@
         <activity android:name=".chapter2.TabLayoutActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             />
+        <activity android:name=".chapter3_view.ViewMoveActivity" />
     </application>
 
 </manifest>
