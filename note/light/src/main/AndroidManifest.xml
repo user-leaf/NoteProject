@@ -27,6 +27,7 @@
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             />
         <activity android:name=".chapter3_view.ViewMoveActivity" />
+        <activity android:name=".chapter3_view.AnimatorDemoActivity" />
     </application>
 
 </manifest>
