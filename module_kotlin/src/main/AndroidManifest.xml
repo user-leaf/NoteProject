@@ -14,7 +14,10 @@
         android:theme="@style/Theme.NoteProject"
         android:usesCleartextTraffic="true">
         <activity android:name=".MenuActivity">
-
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity android:name=".coroutine.CoroutineActivity" />
         <activity android:name=".learning.KotlinStandardFunctionActivity" />
@@ -31,11 +34,9 @@
         <activity android:name=".coroutine.CoroutineDemoActivity" />
         <activity android:name=".coroutine_demo.PersonalPageActivity" />
         <activity android:name=".android_developer.demo_coroutine.CoroutineActivity" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+
         </activity>
+        <activity android:name=".test.Test1Activity" />
 
         <service android:name=".jetpack.lifecycle.service.MyService" />
     </application>

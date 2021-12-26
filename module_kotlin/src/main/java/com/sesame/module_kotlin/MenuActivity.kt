@@ -14,11 +14,13 @@ import com.sesame.module_kotlin.jetpack.viewmodel.VmDemoActivity
 import com.sesame.module_kotlin.jetpack.viewmodel.sharedata.SeekBarActivity
 import com.sesame.module_kotlin.learning.KotlinFunctionActivity
 import com.sesame.module_kotlin.learning.KotlinStandardFunctionActivity
+import com.sesame.module_kotlin.test.Test1Activity
 import kotlinx.android.synthetic.main.activity_menu.*
 
 class MenuActivity : AppCompatActivity() {
 
     enum class MenuItem(var clazz: Class<*>) {
+        test(Test1Activity::class.java),
         KotlinFunction(KotlinFunctionActivity::class.java),
         KotlinStandardFunction(KotlinStandardFunctionActivity::class.java),
         Coroutine(CoroutineActivity::class.java),
