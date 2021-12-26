@@ -6,4 +6,7 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="option_data">数据</string>
+    <string name="option_event">事件</string>
+    <string name="option_holiday">假期</string>
 </resources>

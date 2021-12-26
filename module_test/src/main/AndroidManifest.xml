@@ -35,6 +35,9 @@
 
         </activity>
         <activity android:name=".test_lottie.LottieActivity" >
+
+        </activity>
+        <activity android:name=".test_pickerview.PickerActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
