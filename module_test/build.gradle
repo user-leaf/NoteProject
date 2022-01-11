@@ -61,4 +61,5 @@ dependencies {
 
 //    implementation 'com.contrarywind:Android-PickerView:4.1.9'
     implementation 'com.mitrade.android:lib_picker_view:1.0.0'
+    implementation 'com.google.android.gms:play-services-auth:19.2.0'
 }
