@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "212086728892",
+    "project_id": "my-login-8e1f1",
+    "storage_bucket": "my-login-8e1f1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:212086728892:android:4d10c64e704bcb20d5c8b9",
+        "android_client_info": {
+          "package_name": "com.sesame.noteproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "212086728892-2ue35p2034mq2jhlc3t02nraal463su7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.sesame.noteproject",
+            "certificate_hash": "1278d95dce4997bcb1e7b1f53bfdd686f71a13bc"
+          }
+        },
+        {
+          "client_id": "212086728892-g7dojmbo8h8hf9rose5i9d5l8i155jqq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBwCk_s-D0KPVJE6adDIfaXzt2fc-WT8-8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "212086728892-g7dojmbo8h8hf9rose5i9d5l8i155jqq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

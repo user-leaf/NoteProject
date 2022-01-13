@@ -227,5 +227,22 @@
             android:text="主页弹广告"
             />
 
+        <TextView
+            android:id="@+id/tvGoogle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/holo_green_light"
+            android:gravity="center"
+            android:minHeight="50dp"
+            android:text="google登录" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/holo_blue_light"
+            android:gravity="center"
+            android:minHeight="50dp"
+            />
+
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>
