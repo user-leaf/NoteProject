@@ -3,7 +3,7 @@ package com.sesame.codelab.livedata
 import androidx.lifecycle.MutableLiveData
 import com.sesame.codelab.viewmodel.Person
 
-object MyLiveData {
+object SharedLiveData {
     private val list = ArrayList<Person>()
 
     val personList: MutableLiveData<ArrayList<Person>> by lazy {

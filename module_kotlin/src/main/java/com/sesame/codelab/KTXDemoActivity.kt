@@ -5,10 +5,12 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.edit
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentPagerAdapter
 import androidx.fragment.app.commit
 import androidx.lifecycle.LiveData
 import com.sesame.codelab.lifecycle.MyLifecycleObserver
-import com.sesame.codelab.livedata.MyLiveData
+import com.sesame.codelab.livedata.SharedLiveData
 import com.sesame.codelab.livedata.StockLiveData
 import com.sesame.codelab.viewmodel.MyViewModel
 import com.sesame.codelab.viewmodel.Person
@@ -53,15 +55,31 @@ class KTXDemoActivity : AppCompatActivity() {
             viewModel.persons.value = "haha"
         }
 
-        MyLiveData.personList.observe(this){
+        SharedLiveData.personList.observe(this) {
             println("Activity里: $it")
         }
 
         var age = 18
         btnAddPerson.setOnClickListener {
             val person = Person("张三", age++)
-            MyLiveData.addPerson(person)
+            SharedLiveData.addPerson(person)
         }
 
+        val fragments = mutableListOf<Fragment>()
+        fragments.add(KTXDemoFragment.getInstance("title1"))
+        fragments.add(KTXDemoFragment.getInstance("title2"))
+        fragments.add(KTXDemoFragment.getInstance("title3"))
+
+        viewPager.adapter = object :
+            FragmentPagerAdapter(supportFragmentManager, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
+            override fun getCount(): Int {
+                return fragments.size
+            }
+
+            override fun getItem(position: Int): Fragment {
+                return fragments[position]
+            }
+
+        }
     }
 }
