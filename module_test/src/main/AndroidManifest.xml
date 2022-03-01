@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.sesame.module_test">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name=".TestApplication"
         android:allowBackup="true"
@@ -34,22 +36,32 @@
         <activity android:name=".test_android_gesture.GestureActivity">
 
         </activity>
-        <activity android:name=".test_lottie.LottieActivity" >
+        <activity android:name=".test_lottie.LottieActivity">
 
         </activity>
-        <activity android:name=".test_pickerview.PickerActivity" >
+        <activity android:name=".test_pickerview.PickerActivity">
 
         </activity>
-        <activity android:name=".test_dialogfragment.DialogActivity" >
+        <activity android:name=".test_dialogfragment.DialogActivity">
 
         </activity>
-        <activity android:name=".test_signin.SignInActivity" >
+        <activity android:name=".test_signin.SignInActivity">
 
         </activity>
-        <activity android:name=".test_main_switch_tabs.SwitchTabsActivity" >
+        <activity android:name=".test_main_switch_tabs.SwitchTabsActivity">
 
         </activity>
-        <activity android:name=".test_signin.DialogActivity" >
+        <activity android:name=".test_signin.DialogActivity">
+
+        </activity>
+        <activity android:name=".test_viewpager.NanoMainActivity">
+
+        </activity>
+        <activity android:name=".test_layout.LayoutActivity">
+
+        </activity>
+        <activity android:name=".test_viewpager2.ViewPager2Activity"></activity>
+        <activity android:name=".test_personal_page.PersonalPageActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
