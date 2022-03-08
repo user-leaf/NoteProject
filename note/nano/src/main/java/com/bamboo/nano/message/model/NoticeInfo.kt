@@ -1,4 +1,4 @@
-package com.bamboo.nano.model
+package com.bamboo.nano.message.model
 
 import java.io.Serializable
 

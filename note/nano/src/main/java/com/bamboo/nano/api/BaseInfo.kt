@@ -1,4 +1,4 @@
-package com.bamboo.nano.model
+package com.bamboo.nano.api
 
 import com.google.gson.annotations.SerializedName
 import java.lang.Exception

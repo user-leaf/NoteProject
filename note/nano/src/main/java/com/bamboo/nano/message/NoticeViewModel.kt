@@ -5,7 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.bamboo.nano.api.ApiMessage
 import com.bamboo.nano.api.RetrofitUtils
-import com.bamboo.nano.model.NoticeInfo
+import com.bamboo.nano.message.model.NoticeInfo
 import kotlinx.coroutines.launch
 
 class NoticeViewModel : ViewModel() {
@@ -26,7 +26,7 @@ class NoticeViewModel : ViewModel() {
         }
     }
 
-    private val api by lazy { RetrofitUtils.getRetrofit("https://app.swmarkets.com").create(ApiMessage::class.java) }
+    private val api by lazy { RetrofitUtils.getRetrofit().create(ApiMessage::class.java) }
 
     private fun getNotice(page: Int) {
         viewModelScope.launch {

@@ -2,9 +2,7 @@ package com.bamboo.nano.api
 
 import com.bamboo.nano.constants.VApiMainPath
 import com.bamboo.nano.constants.NotificationState
-import com.bamboo.nano.model.BaseInfo
-import com.bamboo.nano.model.BasePageInfo
-import com.bamboo.nano.model.NoticeInfo
+import com.bamboo.nano.message.model.NoticeInfo
 import retrofit2.http.GET
 import retrofit2.http.Headers
 import retrofit2.http.Query

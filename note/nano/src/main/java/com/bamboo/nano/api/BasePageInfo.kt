@@ -1,4 +1,4 @@
-package com.bamboo.nano.model
+package com.bamboo.nano.api
 
 data class BasePageInfo<T>(
     var total: Int = 0,

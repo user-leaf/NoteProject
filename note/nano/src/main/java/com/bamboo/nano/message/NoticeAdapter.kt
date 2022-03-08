@@ -4,8 +4,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import com.bamboo.nano.R
-import com.bamboo.nano.model.MessageInfo
-import com.bamboo.nano.model.NoticeInfo
+import com.bamboo.nano.message.model.MessageInfo
+import com.bamboo.nano.message.model.NoticeInfo
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
 

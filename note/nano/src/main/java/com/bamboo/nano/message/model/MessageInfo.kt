@@ -1,3 +1,3 @@
-package com.bamboo.nano.model
+package com.bamboo.nano.message.model
 
 data class MessageInfo(val title: String, val subTitle: String)
