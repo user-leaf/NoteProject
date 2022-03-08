@@ -3,23 +3,44 @@ package com.bamboo.nano.message
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.bamboo.nano.api.ApiMessage
+import com.bamboo.nano.api.RetrofitUtils
+import com.bamboo.nano.model.NoticeInfo
 import kotlinx.coroutines.launch
 
 class NoticeViewModel : ViewModel() {
 
-    val data = MutableLiveData<List<NoticeInfo>>()
+    var page = 0
 
-    fun loadData() {
-        viewModelScope.launch {
-            data.value = getInfoList()
+    val list = mutableListOf<NoticeInfo>()
+
+    val noticeDataLiveData: MutableLiveData<List<NoticeInfo>> by lazy {
+        MutableLiveData<List<NoticeInfo>>()
+    }
+
+    fun loadData(isNotice: Boolean, page: Int) {
+        if (isNotice) {
+            getNotice(page)
+        } else {
+            getMessage(page)
         }
     }
 
-    private fun getInfoList(): MutableList<NoticeInfo> {
-        val list = mutableListOf<NoticeInfo>()
-        list.add(NoticeInfo("张三", false))
-        list.add(NoticeInfo("李四", false))
-        list.add(NoticeInfo("王五", false))
-        return list
+    private val api by lazy { RetrofitUtils.getRetrofit("https://app.swmarkets.com").create(ApiMessage::class.java) }
+
+    private fun getNotice(page: Int) {
+        viewModelScope.launch {
+            val result = api.getNotification(page, 20).getValueWithCheck()
+            if (page == 0) {
+                list.clear()
+            }
+            list.addAll(result.resultList)
+            noticeDataLiveData.value = list
+            this@NoticeViewModel.page = page
+        }
+    }
+
+    private fun getMessage(page: Int) {
+
     }
 }

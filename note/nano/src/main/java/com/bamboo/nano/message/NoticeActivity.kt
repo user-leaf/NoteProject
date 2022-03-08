@@ -21,7 +21,7 @@ class NoticeActivity : AppCompatActivity() {
         }
 
         val fragments =
-            mutableListOf(NoticeFragment.newInstance("通知"), NoticeFragment.newInstance("消息"))
+            mutableListOf(NoticeFragment.newInstance(NoticeFragment.TYPE_NOTICE), NoticeFragment.newInstance(NoticeFragment.TYPE_MESSAGE))
 
 //        vpContent.adapter = object :
 //            FragmentPagerAdapter(supportFragmentManager, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
