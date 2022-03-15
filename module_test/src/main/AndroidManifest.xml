@@ -62,6 +62,9 @@
         </activity>
         <activity android:name=".test_viewpager2.ViewPager2Activity"></activity>
         <activity android:name=".test_personal_page.PersonalPageActivity">
+
+        </activity>
+        <activity android:name=".test_flow.FlowActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
