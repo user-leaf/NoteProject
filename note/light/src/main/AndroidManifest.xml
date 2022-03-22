@@ -28,6 +28,7 @@
             />
         <activity android:name=".chapter3_view.ViewMoveActivity" />
         <activity android:name=".chapter3_view.AnimatorDemoActivity" />
+        <activity android:name=".chapter8_rxjava.RxJavaDemoActivity" />
     </application>
 
 </manifest>
