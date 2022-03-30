@@ -21,5 +21,13 @@
         android:text="news"
         />
 
+    <Button
+        android:id="@+id/btnHqShow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="hq"
+        />
+
+
 
 </LinearLayout>

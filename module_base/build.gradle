@@ -81,4 +81,5 @@ dependencies {
     annotationProcessor 'com.github.bumptech.glide:compiler:4.12.0'
     api 'com.airbnb.android:lottie:3.7.0'
     api "androidx.fragment:fragment-ktx:1.4.1"
+    api "org.greenrobot:eventbus:3.3.1"
 }
