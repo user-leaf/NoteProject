@@ -7,4 +7,29 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="bg_style_FF">#FFFFFF</color>
+
+    <!--文字颜色-->
+    <color name="text_color_dc">#DCDCDC</color>
+    <color name="text_color_99">#999999</color>
+    <color name="text_color_66">#666666</color>
+    <color name="text_color_33">#333333</color>
+    <color name="text_color_03">#030303</color>
+    <color name="text_color_57">#575757</color>
+    <color name="text_color_66_33">#A8333333</color>
+    <color name="text_color_c2">#849CC2</color>
+    <color name="text_color_6b">#849CC2</color>
+    <color name="text_color_80">#808080</color>
+    <color name="banner_color_top">#FFEFF8FF</color>
+    <color name="banner_color_middle">#FFC5D1E1</color>
+    <color name="banner_color_bottom">#FFE4EBF9</color>
+    <color name="bg_activity_start">#565094</color>
+    <color name="bg_activity_end">#251F31</color>
+    <color name="bg_activity_item">#FF433586</color>
+    <color name="bg_activity_item_start">#FFFFF2E6</color>
+    <color name="bg_activity_item_end">#FFE6C0A1</color>
+    <color name="text_activity_item_btn">#FFA0640A</color>
+    <color name="text_color_7D">#FF39597D</color>
+    <color name="text_color_FF">#FFFFFF</color>
 </resources>
