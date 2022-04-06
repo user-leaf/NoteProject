@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.bamboo.nano.message.NoticeActivity
 import com.bamboo.nano.news.NewsActivity
+import com.bamboo.nano.search.SearchActivity
 import com.bamboo.nano.viewpager_hq.HqChooseActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -25,6 +26,11 @@ class MainActivity : AppCompatActivity() {
 
         btnHqShow.setOnClickListener {
             val intent = Intent(this, HqChooseActivity::class.java)
+            startActivity(intent)
+        }
+
+        btnSearch.setOnClickListener {
+            val intent = Intent(this, SearchActivity::class.java)
             startActivity(intent)
         }
     }

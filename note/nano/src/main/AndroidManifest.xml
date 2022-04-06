@@ -24,6 +24,7 @@
         <activity android:name=".message.NoticeActivity" />
         <activity android:name=".news.NewsActivity" />
         <activity android:name=".viewpager_hq.HqChooseActivity" />
+        <activity android:name=".search.SearchActivity" />
     </application>
 
 </manifest>
