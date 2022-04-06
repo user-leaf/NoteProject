@@ -35,7 +35,8 @@ class SearchActivity : AppCompatActivity() {
             iv_clear.visibility =
                 if (et_search.text.toString().isEmpty()) View.GONE else View.VISIBLE
             showFragmentManager.showFragment(if (it.toString().isEmpty()) 0 else 1)
-            searchViewModel.keywordsLiveData.value = it.toString()
+//            searchViewModel.keywordsLiveData.value = it.toString() // 可以直接在这用吗？感觉最好不要这样写。ViewModel中的LiveData主要用来被观察的。
+            searchViewModel.changeKeywords(it.toString())
         }
 
         iv_clear.setOnClickListener {
