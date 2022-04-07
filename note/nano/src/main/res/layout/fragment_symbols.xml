@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.sesame.module_base.widgets.LoadingLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/loadingLayout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    app:showContent="true">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvSymbols"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        />
-</FrameLayout>
+        android:layout_height="match_parent" />
+</com.sesame.module_base.widgets.LoadingLayout>
