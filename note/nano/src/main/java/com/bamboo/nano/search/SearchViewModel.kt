@@ -1,18 +1,26 @@
 package com.bamboo.nano.search
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 class SearchViewModel : ViewModel() {
 
-    val keywordsLiveData = MutableLiveData<String>()
+    // 为什么这么写？
+    private val _keywordsLiveData = MutableLiveData<String>()
+    val keywordsLiveData: LiveData<String>
+        get() = _keywordsLiveData
 
-    val searchResultLiveData = MutableLiveData<List<SearchResultModel>>()
+    private val _searchResultLiveData = MutableLiveData<List<SearchResultModel>>()
+    val searchResultLiveData: LiveData<List<SearchResultModel>>
+        get() = _searchResultLiveData
 
-    val symbolsLiveData = MutableLiveData<List<String>>()
+    private val _symbolsLiveData = MutableLiveData<List<String>>()
+    val symbolsLiveData: LiveData<List<String>>
+        get() = _symbolsLiveData
 
-    fun changeKeywords(keywords: String){
-        keywordsLiveData.value = keywords
+    fun changeKeywords(keywords: String) {
+        _keywordsLiveData.value = keywords
     }
 
     fun loadData(keywords: String) {
@@ -20,7 +28,7 @@ class SearchViewModel : ViewModel() {
         for (index in 1..20) {
             list.add(SearchResultModel("$keywords - name$index", "code$index"))
         }
-        searchResultLiveData.value = list
+        _searchResultLiveData.value = list
     }
 
     fun loadDataBySymbol() {
@@ -28,6 +36,6 @@ class SearchViewModel : ViewModel() {
         for (index in 0..30) {
             symbols.add("symbol-$index")
         }
-        symbolsLiveData.value = symbols
+        _symbolsLiveData.value = symbols
     }
 }
