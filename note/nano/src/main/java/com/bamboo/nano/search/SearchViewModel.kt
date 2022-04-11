@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 
 class SearchViewModel : ViewModel() {
 
-    // 为什么这么写？
+    // 为什么这么写？//dart语言里以下划线开头的是私有的。
     private val _keywordsLiveData = MutableLiveData<String>()
     val keywordsLiveData: LiveData<String>
         get() = _keywordsLiveData
