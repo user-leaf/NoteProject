@@ -9,4 +9,19 @@
         android:layout_height="wrap_content"
         android:text="websocket" />
 
+    <Button
+        android:id="@+id/btnMock"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="mock"
+        />
+
+    <Button
+        android:id="@+id/btnConn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="conn"
+        />
+
+
 </androidx.appcompat.widget.LinearLayoutCompat>
