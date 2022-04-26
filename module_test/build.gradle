@@ -5,6 +5,7 @@ if (TestModuleRunAlone.toBoolean()) {
 }
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'androidx.navigation.safeargs'
 
 
 android {

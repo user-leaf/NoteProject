@@ -74,6 +74,9 @@
 
         </activity>
         <activity android:name=".WsActivity" >
+
+        </activity>
+        <activity android:name=".test_navigation.NavActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
