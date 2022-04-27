@@ -83,6 +83,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".app_words.WordsActivity" >
+
+        </activity>
+        <activity android:name=".RvActivity" >
+
+        </activity>
     </application>
 
 </manifest>
