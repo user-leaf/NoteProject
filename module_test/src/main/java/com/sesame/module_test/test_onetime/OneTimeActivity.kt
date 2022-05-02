@@ -16,7 +16,7 @@ class OneTimeActivity: AppCompatActivity() {
         val viewModel by viewModels<OneTimeViewModel>()
 
         viewModel.message1.observeOneTime(this){
-            Toast.makeText(this, it, Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "content:$it", Toast.LENGTH_SHORT).show()
         }
 
         btnShow.setOnClickListener{
