@@ -77,17 +77,20 @@
 
         </activity>
         <activity android:name=".test_navigation.NavActivity" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".app_words.WordsActivity" >
 
         </activity>
         <activity android:name=".RvActivity" >
 
+        </activity>
+        <activity android:name=".test_onetime.OneTimeActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
 
