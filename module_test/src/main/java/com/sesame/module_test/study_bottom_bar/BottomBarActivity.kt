@@ -50,6 +50,8 @@ class BottomBarActivity : AppCompatActivity() {
 
         })
 
+//        binding.viewPager.offscreenPageLimit = 3
+
         binding.bottomNavView.setOnNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.menu_home -> {

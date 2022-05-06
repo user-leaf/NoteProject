@@ -14,11 +14,26 @@ class VpHomeFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
-    lateinit var binding: FragmentVpHomeBinding
+    private var _binding: FragmentVpHomeBinding? = null
+    private val binding get() = _binding!!
 
-    private val fragments = mutableListOf<Fragment>()
+    private val fragments = mutableListOf<Fragment>(
+        VpContentFragment.newInstance("title1", ""),
+        VpContentFragment.newInstance("title2", ""),
+        VpContentFragment.newInstance("title3", ""),
+        VpContentFragment.newInstance("title4", ""),
+        VpContentFragment.newInstance("title5", ""),
+        VpContentFragment.newInstance("title6", ""),
+    )
 
-    private val titles = mutableListOf<String>()
+    private val titles = mutableListOf<String>(
+        "title1",
+        "title2",
+        "title3",
+        "title4",
+        "title5",
+        "title6",
+    )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,8 +47,9 @@ class VpHomeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentVpHomeBinding.inflate(layoutInflater, container, false)
-        return binding.root
+        _binding = FragmentVpHomeBinding.inflate(layoutInflater, container, false)
+        val view = binding.root
+        return view
     }
 
     companion object {
@@ -50,25 +66,30 @@ class VpHomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         // TODO:  滑到最右，再往回滑动之后，不明白为什么会再次执行。
-        initData()
+//        initData()
         val adapter = MyFragmentStateVpTitleAdapter(childFragmentManager, fragments, titles)
         binding.vpHome.adapter = adapter
         binding.tabLayout.setupWithViewPager(binding.vpHome)
     }
 
     private fun initData() {
-        fragments.add(VpContentFragment.newInstance("title1", ""))
-        fragments.add(VpContentFragment.newInstance("title2", ""))
-        fragments.add(VpContentFragment.newInstance("title3", ""))
-        fragments.add(VpContentFragment.newInstance("title4", ""))
-        fragments.add(VpContentFragment.newInstance("title5", ""))
-        fragments.add(VpContentFragment.newInstance("title6", ""))
+//        fragments.add(VpContentFragment.newInstance("title1", ""))
+//        fragments.add(VpContentFragment.newInstance("title2", ""))
+//        fragments.add(VpContentFragment.newInstance("title3", ""))
+//        fragments.add(VpContentFragment.newInstance("title4", ""))
+//        fragments.add(VpContentFragment.newInstance("title5", ""))
+//        fragments.add(VpContentFragment.newInstance("title6", ""))
+//
+//        titles.add("title1")
+//        titles.add("title2")
+//        titles.add("title3")
+//        titles.add("title4")
+//        titles.add("title5")
+//        titles.add("title6")
+    }
 
-        titles.add("title1")
-        titles.add("title2")
-        titles.add("title3")
-        titles.add("title4")
-        titles.add("title5")
-        titles.add("title6")
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }
