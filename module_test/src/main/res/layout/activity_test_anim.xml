@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/flContainer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+    <TextView
+        android:id="@+id/tvBlue"
+        android:layout_width="@dimen/base100dp"
+        android:layout_height="@dimen/base100dp"
+        android:layout_marginStart="@dimen/base20dp"
+        android:layout_marginTop="@dimen/base20dp"
+        android:background="@android:color/holo_blue_dark" />
+
+    <com.sesame.module_test.test_anim.MyValue
+        android:id="@+id/tvValue"
+        android:layout_width="@dimen/base100dp"
+        android:layout_height="@dimen/base100dp"
+        android:layout_gravity="center" />
+</LinearLayout>
