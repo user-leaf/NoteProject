@@ -94,6 +94,9 @@
         <activity android:name=".test_anim.AnimActivity" >
 
         </activity>
+        <activity android:name=".test_rxjava.RxJavaTestActivity" >
+
+        </activity>
         <activity android:name=".test_loadlayout.LoadLayoutActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
