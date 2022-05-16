@@ -30,7 +30,7 @@ allprojects {
         mavenCentral()
         maven { url "https://oss.jfrog.org/libs-snapshot" }
         maven { url "https://jitpack.io" }
-        maven { url 'http://nexus.jujin8.com/repository/mitrade-android/' }
+        maven { url 'https://nexus.jujin8.com/repository/mitrade-android/' }
     }
 }
 

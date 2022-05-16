@@ -37,10 +37,6 @@ ext {
             "MagicIndicator"                      : 'com.github.hackware1993:MagicIndicator:1.7.0', // for androidx
             "glide"                               : 'com.github.bumptech.glide:glide:4.12.0',
             "eventbus"                            : "org.greenrobot:eventbus:3.3.1",
-            "navigation-fragment"                 : "androidx.navigation:navigation-fragment:2.4.2",
-            "navigation-ui"                       : "androidx.navigation:navigation-ui:2.4.2",
-            "navigation-fragment-ktx"             : "androidx.navigation:navigation-fragment-ktx:2.4.2",
-            "navigation-ui-ktx"                   : "androidx.navigation:navigation-ui-ktx:2.4.2",
             "navigation-dynamic-features-fragment": "androidx.navigation:navigation-dynamic-features-fragment:2.4.2"
     ]
 }
