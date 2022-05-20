@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:ignore="ContentDescription">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/titleView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="搜索页"
+        android:gravity="center"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/llSelect"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/base45dp"
+            android:layout_marginStart="@dimen/base15dp"
+            android:layout_marginTop="@dimen/base10dp"
+            android:background="@drawable/et_search_bg_shape"
+            android:minWidth="@dimen/base125dp"
+            android:orientation="horizontal"
+            android:paddingStart="@dimen/base10dp"
+            android:paddingEnd="@dimen/base10dp">
+
+            <TextView
+                android:id="@+id/tvSelect"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="@string/search_all_symbols"
+                android:textColor="@color/text_color_03"
+                android:textSize="@dimen/base14dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="@dimen/base45dp"
+            android:layout_marginStart="@dimen/base10dp"
+            android:layout_marginTop="@dimen/base10dp"
+            android:layout_marginEnd="@dimen/base12dp"
+            android:layout_marginBottom="@dimen/base10dp"
+            android:layout_toEndOf="@id/llSelect"
+            android:layout_weight="1"
+            android:background="@drawable/et_search_bg_shape"
+            android:elevation="@dimen/base0dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/iv_search"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:padding="@dimen/base10dp"
+                android:src="@drawable/icon_search_favorite" />
+
+            <EditText
+                android:id="@+id/et_search"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@null"
+                android:hint="搜索"
+                android:inputType="text"
+                android:maxLines="1"
+                android:paddingStart="@dimen/base10dp"
+                android:textColor="@color/text_color_03"
+                android:textColorHint="@color/text_color_99"
+                android:textSize="@dimen/base14dp"
+                tools:ignore="RtlSymmetry" />
+
+            <ImageView
+                android:id="@+id/iv_clear"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:padding="@dimen/base10dp"
+                android:src="@drawable/icon_cancel"
+                android:visibility="gone" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/fl_search_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>

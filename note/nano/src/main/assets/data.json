@@ -1,0 +1,50 @@
+[
+  {
+    "description": "基于 DAX 指数，包含德国30家公司",
+    "name": "德国30指数",
+    "symbol": "GER30",
+    "type": "Indices"
+  },
+  {
+    "description": "基于恒生指数包含50家顶尖香港上市公司",
+    "name": "香港50指数",
+    "symbol": "HK50",
+    "type": "Indices"
+  },
+  {
+    "description": "基于日经指数，包含225家日本公司",
+    "name": "日本225指数",
+    "symbol": "JPN225",
+    "type": "Indices"
+  },
+  {
+    "description": "基于纳斯达克100指数，包含主要技术公司的美国股票市场指数",
+    "name": "美国科技股100指数",
+    "symbol": "NAS100",
+    "type": "Indices"
+  },
+  {
+    "description": "基于富时100指数，在伦敦证券交易所上市的100家高市值公司的指数",
+    "name": "英国100指数",
+    "symbol": "UK100",
+    "type": "Indices"
+  },
+  {
+    "description": "基于道琼斯工业平均指数，由30家公司组成的美国证券市场指数",
+    "name": "美国30指数",
+    "symbol": "US30",
+    "type": "Indices"
+  },
+  {
+    "description": "基于标准普尔500指数，由500家领军企业组成的美国证券市场指数",
+    "name": "美国500指数",
+    "symbol": "US500",
+    "type": "Indices"
+  },
+  {
+    "description": "美元指数是反映美元在国际外汇市场的汇率情况的综合指标，用来衡量美元对一揽子货币的汇率变化程度。由美元对六个主要国际货币的汇率经过加权几何平均数计算获得。",
+    "name": "美元指数",
+    "symbol": "USDOLLAR-F",
+    "type": "Indices"
+  }
+]
