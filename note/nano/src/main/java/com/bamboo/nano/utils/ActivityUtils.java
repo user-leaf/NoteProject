@@ -65,7 +65,7 @@ public class ActivityUtils {
         });
     }
 
-    public static ActivityUtils init(Application application) {
+    public static void init(Application application) {
         if (singleton == null) {
             synchronized (ActivityUtils.class) {
                 if (singleton == null) {
@@ -73,7 +73,6 @@ public class ActivityUtils {
                 }
             }
         }
-        return singleton;
     }
 
     private void remove(Activity activity) {
@@ -85,7 +84,7 @@ public class ActivityUtils {
         }
     }
 
-    private void comebackToActive(List<String> activityNames) {
+    private void comeToActive(List<String> activityNames) {
         while (!activities.isEmpty()) {
             WeakReference<Activity> peek = activities.peek();
             if (peek.get() != null) {
