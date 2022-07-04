@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -11,35 +10,36 @@
         android:id="@+id/btnNotice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="notice"
-        />
+        android:text="notice" />
 
     <Button
         android:id="@+id/btnNews"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="news"
-        />
+        android:text="news" />
 
     <Button
         android:id="@+id/btnHqShow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="hq"
-        />
+        android:text="hq" />
 
     <Button
         android:id="@+id/btnSearch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="搜索"
-        />
+        android:text="搜索" />
 
     <Button
         android:id="@+id/btnSearch2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="搜索2"
-        />
+        android:text="搜索2" />
+
+    <Button
+        android:id="@+id/btnUser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="个人中心" />
 
 </LinearLayout>

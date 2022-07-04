@@ -7,6 +7,7 @@ import com.bamboo.nano.message.NoticeActivity
 import com.bamboo.nano.news.NewsActivity
 import com.bamboo.nano.search.SearchActivity
 import com.bamboo.nano.search_copy.Search2Activity
+import com.bamboo.nano.user.UserActivity
 import com.bamboo.nano.viewpager_hq.HqChooseActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -37,6 +38,11 @@ class MainActivity : AppCompatActivity() {
 
         btnSearch2.setOnClickListener {
             val intent = Intent(this, Search2Activity::class.java)
+            startActivity(intent)
+        }
+
+        btnUser.setOnClickListener {
+            val intent = Intent(this, UserActivity::class.java)
             startActivity(intent)
         }
     }

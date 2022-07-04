@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.bamboo.nano.widget.SuperTextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/base50dp"
+        app:st_leftIcon="@mipmap/ic_launcher"
+        app:st_leftText="大标题"
+        app:st_rightIcon="@drawable/ic_launcher_round"
+        app:st_rightText="小标题"
+        app:st_dividerHeight="1dp"
+        app:st_dividerMarginLeft="@dimen/base20dp"
+        app:st_dividerColor="@color/purple_200"
+        />
+
+    <com.bamboo.nano.widget.SuperTextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/base50dp"
+        app:st_leftIcon="@mipmap/ic_launcher"
+        app:st_leftText="大标题"
+        app:st_rightIcon="@drawable/ic_launcher_round"
+        app:st_rightText="小标题"
+        app:st_dividerHeight="1dp"
+        app:st_dividerMarginLeft="@dimen/base20dp"
+        />
+
+    <com.bamboo.nano.widget.SuperTextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/base50dp"
+        app:st_leftIcon="@mipmap/ic_launcher"
+        app:st_leftText="大标题"
+        app:st_rightIcon="@drawable/ic_launcher_round"
+        app:st_rightText="小标题"
+        app:st_dividerHeight="1dp"
+        />
+
+</LinearLayout>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="SuperTextView">
+        <attr name="st_leftIcon" format="reference" />
+        <attr name="st_leftIconSize" format="dimension" />
+        <attr name="st_leftIconMarginLeft" format="dimension" />
+
+        <attr name="st_leftText" format="string" />
+        <attr name="st_leftTextSize" format="dimension" />
+        <attr name="st_leftTextColor" format="color" />
+        <attr name="st_leftTextMarginLeft" format="dimension" />
+
+        <attr name="st_rightIcon" format="reference" />
+        <attr name="st_rightIconSize" format="dimension" />
+        <attr name="st_rightIconMarginRight" format="dimension" />
+
+        <attr name="st_rightText" format="string" />
+        <attr name="st_rightTextSize" format="dimension" />
+        <attr name="st_rightTextColor" format="color" />
+        <attr name="st_rightTextMarginRight" format="dimension" />
+
+        <attr name="st_dividerHeight" format="dimension" />
+        <attr name="st_dividerColor" format="color" />
+        <attr name="st_dividerMarginLeft" format="dimension"/>
+
+    </declare-styleable>
+</resources>
