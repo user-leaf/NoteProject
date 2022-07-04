@@ -1,8 +1,14 @@
 package com.bamboo.nano;
 
+import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
+import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
+import com.bamboo.nano.utils.ActivityUtils;
 import com.scwang.smart.refresh.footer.ClassicsFooter;
 import com.scwang.smart.refresh.header.ClassicsHeader;
 import com.scwang.smart.refresh.layout.SmartRefreshLayout;
@@ -33,5 +39,7 @@ public class MyApplication extends Application {
                 return new ClassicsFooter(context).setDrawableSize(20);
             }
         });
+
+        ActivityUtils.init(this);
     }
 }
