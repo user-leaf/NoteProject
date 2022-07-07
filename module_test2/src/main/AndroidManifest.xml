@@ -34,6 +34,10 @@
             android:exported="true"></activity>
         <activity android:name=".test7_kotlin.EditActivity"
             android:exported="true">
+
+        </activity>
+        <activity android:name=".test8_try_catch.TryCatchActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
