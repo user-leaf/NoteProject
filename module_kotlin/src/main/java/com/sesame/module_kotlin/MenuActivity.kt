@@ -14,6 +14,7 @@ import com.sesame.module_kotlin.jetpack.viewmodel.VmDemoActivity
 import com.sesame.module_kotlin.jetpack.viewmodel.sharedata.SeekBarActivity
 import com.sesame.module_kotlin.learning.KotlinFunctionActivity
 import com.sesame.module_kotlin.learning.KotlinStandardFunctionActivity
+import com.sesame.module_kotlin.sealed.SealedActivity
 import com.sesame.module_kotlin.test.Test1Activity
 import kotlinx.android.synthetic.main.activity_menu.*
 
@@ -32,7 +33,7 @@ class MenuActivity : AppCompatActivity() {
         NavigationDemo(NavigationActivity::class.java),
         RoomDemo(RoomDemoActivity::class.java),
         PersonalPageActivity(com.sesame.module_kotlin.coroutine_demo.PersonalPageActivity::class.java),
-        SealedActivity(SealedActivity::class.java),
+        SealedActivityDemo(SealedActivity::class.java),
         ;
 
         companion object {
