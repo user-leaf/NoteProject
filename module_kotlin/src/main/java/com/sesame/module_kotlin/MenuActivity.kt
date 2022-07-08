@@ -32,6 +32,7 @@ class MenuActivity : AppCompatActivity() {
         NavigationDemo(NavigationActivity::class.java),
         RoomDemo(RoomDemoActivity::class.java),
         PersonalPageActivity(com.sesame.module_kotlin.coroutine_demo.PersonalPageActivity::class.java),
+        SealedActivity(SealedActivity::class.java),
         ;
 
         companion object {

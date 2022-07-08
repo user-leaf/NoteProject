@@ -43,6 +43,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".sealed.SealedActivity" />
 
         <service android:name=".jetpack.lifecycle.service.MyService" />
     </application>
