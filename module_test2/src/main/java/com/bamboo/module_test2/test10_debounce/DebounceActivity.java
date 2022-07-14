@@ -1,8 +1,11 @@
 package com.bamboo.module_test2.test10_debounce;
 
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,18 +25,37 @@ import io.reactivex.rxjava3.schedulers.Schedulers;
 public class DebounceActivity extends AppCompatActivity {
 
     private int count = 0;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test10_debounce);
         Button btnClick = findViewById(R.id.btnClick);
-        Observable.create(new ObservableOnSubscribe<Integer>() {
+        EditText etSearch = findViewById(R.id.etSearch);
+        Observable.create(new ObservableOnSubscribe<String>() {
                     @Override
-                    public void subscribe(@NonNull ObservableEmitter<Integer> emitter) throws Throwable {
+                    public void subscribe(@NonNull ObservableEmitter<String> emitter) throws Throwable {
                         btnClick.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                emitter.onNext(count++);
+                                count++;
+                                emitter.onNext(String.valueOf(count));
+                            }
+                        });
+                        etSearch.addTextChangedListener(new TextWatcher() {
+                            @Override
+                            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+                            }
+
+                            @Override
+                            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                                emitter.onNext(s.toString());
+                            }
+
+                            @Override
+                            public void afterTextChanged(Editable s) {
+
                             }
                         });
                     }
@@ -41,10 +63,10 @@ public class DebounceActivity extends AppCompatActivity {
                 }).debounce(1, TimeUnit.SECONDS)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Consumer<Integer>() {
+                .subscribe(new Consumer<String>() {
                     @Override
-                    public void accept(Integer integer) throws Throwable {
-                        System.out.println(integer + "--------integer2");
+                    public void accept(String str) throws Throwable {
+                        System.out.println(str + "--------String2");
                     }
                 });
 
