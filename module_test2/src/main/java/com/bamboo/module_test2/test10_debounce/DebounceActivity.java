@@ -37,6 +37,7 @@ public class DebounceActivity extends AppCompatActivity {
                             }
                         });
                     }
+                    // 使用debounce()处理用户搜索并处理它在键入时的暂停(在最后一个字符后1秒搜索)
                 }).debounce(1, TimeUnit.SECONDS)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
