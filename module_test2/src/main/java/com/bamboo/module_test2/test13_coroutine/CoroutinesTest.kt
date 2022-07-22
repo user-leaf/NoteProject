@@ -1,6 +1,9 @@
 package com.bamboo.module_test2.test13_coroutine
 
-import kotlinx.coroutines.*
+import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 
 fun main() {
 //    GlobalScope.launch {
@@ -17,14 +20,31 @@ fun main() {
 //        println("codes run in coroutine scope finished")
 //    }
 
-    val start = System.currentTimeMillis()
+//    val start = System.currentTimeMillis()
+//    runBlocking {
+//        for (i in 0..100000) {
+//            launch {
+//                println(".")
+//            }
+//        }
+//    }
+//    println(System.currentTimeMillis() - start)
+
     runBlocking {
-        for (i in 0..100000) {
+        getName()
+    }
+}
+
+suspend fun getName() {
+    val start = System.currentTimeMillis()
+    coroutineScope {
+        repeat(1000) {
             launch {
                 println(".")
+                delay(1000)
             }
         }
     }
-    println(System.currentTimeMillis()-start)
-
+    val end = System.currentTimeMillis()
+    println("time: ${end - start}")
 }
