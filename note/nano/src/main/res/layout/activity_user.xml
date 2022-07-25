@@ -8,34 +8,51 @@
     <com.bamboo.nano.widget.SuperTextView
         android:layout_width="match_parent"
         android:layout_height="@dimen/base50dp"
-        app:st_leftIcon="@mipmap/ic_launcher"
-        app:st_leftText="大标题"
-        app:st_rightIcon="@drawable/ic_launcher_round"
-        app:st_rightText="小标题"
-        app:st_dividerHeight="1dp"
-        app:st_dividerMarginLeft="@dimen/base20dp"
         app:st_dividerColor="@color/purple_200"
-        />
-
-    <com.bamboo.nano.widget.SuperTextView
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/base50dp"
-        app:st_leftIcon="@mipmap/ic_launcher"
-        app:st_leftText="大标题"
-        app:st_rightIcon="@drawable/ic_launcher_round"
-        app:st_rightText="小标题"
         app:st_dividerHeight="1dp"
         app:st_dividerMarginLeft="@dimen/base20dp"
-        />
+        app:st_leftIcon="@mipmap/ic_launcher"
+        app:st_leftText="大标题"
+        app:st_rightIcon="@drawable/ic_launcher_round"
+        app:st_rightText="小标题" />
+
+    <com.bamboo.nano.widget.SuperTextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/base50dp"
+        app:st_dividerHeight="1dp"
+        app:st_dividerMarginLeft="@dimen/base20dp"
+        app:st_leftIcon="@mipmap/ic_launcher"
+        app:st_leftText="大标题"
+        app:st_rightIcon="@drawable/ic_launcher_round"
+        app:st_rightText="小标题" />
+
+    <com.bamboo.nano.widget.SuperTextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/base50dp"
+        app:st_dividerHeight="1dp"
+        app:st_leftIcon="@mipmap/ic_launcher"
+        app:st_leftText="大标题"
+        app:st_rightIcon="@drawable/ic_launcher_round"
+        app:st_rightText="小标题" />
 
     <com.bamboo.nano.widget.SuperTextView
         android:layout_width="match_parent"
         android:layout_height="@dimen/base50dp"
         app:st_leftIcon="@mipmap/ic_launcher"
-        app:st_leftText="大标题"
         app:st_rightIcon="@drawable/ic_launcher_round"
-        app:st_rightText="小标题"
-        app:st_dividerHeight="1dp"
-        />
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="未完成身份认证"
+            android:layout_toStartOf="@+id/rightImageView"
+            android:drawableStart="@drawable/icon_search_favorite"
+            android:layout_centerVertical="true"
+            android:drawablePadding="@dimen/base5dp"
+            android:layout_marginEnd="@dimen/base10dp"
+            />
+
+    </com.bamboo.nano.widget.SuperTextView>
 
 </LinearLayout>
