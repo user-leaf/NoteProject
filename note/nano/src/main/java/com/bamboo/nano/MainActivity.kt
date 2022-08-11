@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.bamboo.nano.message.NoticeActivity
 import com.bamboo.nano.news.NewsActivity
+import com.bamboo.nano.popup.PopupActivity
 import com.bamboo.nano.search.SearchActivity
 import com.bamboo.nano.search_copy.Search2Activity
 import com.bamboo.nano.user.UserActivity
@@ -43,6 +44,11 @@ class MainActivity : AppCompatActivity() {
 
         btnUser.setOnClickListener {
             val intent = Intent(this, UserActivity::class.java)
+            startActivity(intent)
+        }
+
+        btnPopup.setOnClickListener {
+            val intent = Intent(this, PopupActivity::class.java)
             startActivity(intent)
         }
     }

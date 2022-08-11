@@ -39,5 +39,6 @@ ext {
             "eventbus"                            : "org.greenrobot:eventbus:3.3.1",
             "navigation-dynamic-features-fragment": "androidx.navigation:navigation-dynamic-features-fragment:2.4.2",
             "hawk"                                : "com.orhanobut:hawk:2.0.1",
+            "basepopup"                           : 'io.github.razerdp:BasePopup:3.2.0'
     ]
 }
