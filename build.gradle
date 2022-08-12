@@ -14,11 +14,11 @@ buildscript {
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
         classpath 'com.jakewharton:butterknife-gradle-plugin:10.2.3'
-        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.20'
-        classpath "org.jetbrains.kotlin:kotlin-android-extensions:1.6.21"
+        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.7.0'
+        classpath "org.jetbrains.kotlin:kotlin-android-extensions:1.7.0"
 
-        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:2.5.0-rc01"
-        classpath 'com.google.gms:google-services:4.3.10'
+        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:2.5.1"
+        classpath 'com.google.gms:google-services:4.3.13'
     }
 }
 
