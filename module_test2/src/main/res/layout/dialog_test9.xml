@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+    <ImageView
+        android:layout_width="@dimen/base40dp"
+        android:layout_height="@dimen/base40dp"
+        android:src="@mipmap/ic_launcher_round"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/white"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="恭喜您！"
+            android:textStyle="bold"
+            android:textSize="@dimen/base20dp"
+            android:textColor="#030303"
+            android:layout_gravity="center_horizontal"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="已完成实名认证，认证通过后我们会将 $9 赠金充入您的账户中，请您注意账户资金变化。如果任何问题，请联系我们在线客服"
+            android:textColor="#ff666666"
+            android:textSize="18sp"
+            android:padding="@dimen/base15dp"
+            />
+    </LinearLayout>
+</LinearLayout>

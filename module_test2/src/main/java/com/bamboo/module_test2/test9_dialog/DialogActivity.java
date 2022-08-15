@@ -20,6 +20,8 @@ public class DialogActivity extends AppCompatActivity implements View.OnClickLis
 
     @Override
     public void onClick(View v) {
-
+        
+        // 怎么应用呢？
+        new MyDialog().show(getSupportFragmentManager(), "aaa");
     }
 }
