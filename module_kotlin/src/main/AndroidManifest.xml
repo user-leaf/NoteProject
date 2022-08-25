@@ -38,12 +38,16 @@
 
         </activity>
         <activity android:name="com.sesame.codelab.coroutine.CoroutineActivity" >
+
+        </activity>
+        <activity android:name=".sealed.SealedActivity" />
+        <activity android:name="com.sesame.first_code.test2_custom_view.Test2Activity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".sealed.SealedActivity" />
 
         <service android:name=".jetpack.lifecycle.service.MyService" />
     </application>
