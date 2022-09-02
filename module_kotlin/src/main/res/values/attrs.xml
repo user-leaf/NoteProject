@@ -4,4 +4,10 @@
         <attr name="tl_showLeft" format="boolean" />
         <attr name="tl_showRight" format="boolean" />
     </declare-styleable>
+
+    <declare-styleable name="TitleView">
+        <attr name="fev_showLeft" format="boolean" />
+        <attr name="fev_showRight" format="boolean" />
+        <attr name="fev_title" format="string" />
+    </declare-styleable>
 </resources>
