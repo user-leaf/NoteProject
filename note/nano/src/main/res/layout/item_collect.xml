@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.AppCompatCheckBox xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/chbCollect"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/base30dp"
+    android:layout_marginStart="@dimen/base10dp"
+    android:button="@drawable/chb_collect"
+    android:paddingStart="@dimen/base10dp"
+    tools:text="abc" />

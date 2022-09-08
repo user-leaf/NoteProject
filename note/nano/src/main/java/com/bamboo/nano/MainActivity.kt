@@ -10,12 +10,19 @@ import com.bamboo.nano.search.SearchActivity
 import com.bamboo.nano.search_copy.Search2Activity
 import com.bamboo.nano.user.UserActivity
 import com.bamboo.nano.viewpager_hq.HqChooseActivity
+import com.bamboo.newrise.NewriseActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        if (true){
+            val intent = Intent(this, NewriseActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
 
         btnNotice.setOnClickListener {
             val intent = Intent(this, NoticeActivity::class.java)

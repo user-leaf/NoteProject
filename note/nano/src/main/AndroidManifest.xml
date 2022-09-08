@@ -28,6 +28,8 @@
         <activity android:name=".search_copy.Search2Activity" />
         <activity android:name=".user.UserActivity" />
         <activity android:name=".popup.PopupActivity" />
+        <activity android:name="com.bamboo.newrise.NewriseActivity" />
+        <activity android:name="com.bamboo.newrise.favorite.CollectActivity" />
     </application>
 
 </manifest>
