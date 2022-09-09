@@ -30,6 +30,7 @@
         <activity android:name=".popup.PopupActivity" />
         <activity android:name="com.bamboo.newrise.NewriseActivity" />
         <activity android:name="com.bamboo.newrise.favorite.CollectActivity" />
+        <activity android:name="com.bamboo.newrise.home.HomeActivity" />
     </application>
 
 </manifest>

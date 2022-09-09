@@ -5,9 +5,10 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.bamboo.nano.R
 import com.bamboo.newrise.favorite.CollectActivity
+import com.bamboo.newrise.home.HomeActivity
 import kotlinx.android.synthetic.main.activity_newrise.*
 
-class NewriseActivity: AppCompatActivity() {
+class NewriseActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -15,6 +16,10 @@ class NewriseActivity: AppCompatActivity() {
 
         btnCollect.setOnClickListener {
             startActivity(Intent(this, CollectActivity::class.java))
+        }
+
+        btnHome.setOnClickListener {
+            startActivity(Intent(this, HomeActivity::class.java))
         }
     }
 }
