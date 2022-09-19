@@ -2,9 +2,16 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.bamboo.module_test2">
 
+    <queries>
+        <package android:name="jp.naver.line.android" />
+        <package android:name="org.telegram.messenger" />
+        <package android:name="com.whatsapp" />
+    </queries>
+
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES" />
 
     <application
         android:name=".Test2Application"
@@ -65,6 +72,10 @@
 
         </activity>
         <activity android:name=".test16_viewpager2.Test16Activity"
+            android:exported="true">
+
+        </activity>
+        <activity android:name=".test17_jump2app.Test17Activity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
