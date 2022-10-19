@@ -3,6 +3,7 @@ package com.bamboo.nano
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.bamboo.nano.list.view.QuotationListActivity
 import com.bamboo.nano.message.NoticeActivity
 import com.bamboo.nano.news.NewsActivity
 import com.bamboo.nano.popup.PopupActivity
@@ -18,7 +19,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        if (true){
+        if (false) {
             val intent = Intent(this, NewriseActivity::class.java)
             startActivity(intent)
             finish()
@@ -57,6 +58,10 @@ class MainActivity : AppCompatActivity() {
         btnPopup.setOnClickListener {
             val intent = Intent(this, PopupActivity::class.java)
             startActivity(intent)
+        }
+
+        btnQuotationList.setOnClickListener {
+            startActivity(Intent(this, QuotationListActivity::class.java))
         }
     }
 }

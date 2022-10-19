@@ -48,4 +48,11 @@
         android:layout_height="wrap_content"
         android:text="Popup提示" />
 
+    <Button
+        android:id="@+id/btnQuotationList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="交易列表" />
+
+
 </LinearLayout>
