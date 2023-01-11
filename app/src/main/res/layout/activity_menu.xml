@@ -237,11 +237,13 @@
             android:text="google登录" />
 
         <TextView
+            android:id="@+id/tvCustomView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@android:color/holo_blue_light"
             android:gravity="center"
             android:minHeight="50dp"
+            android:text="View体系，自定义View的理解"
             />
 
     </LinearLayout>

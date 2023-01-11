@@ -16,6 +16,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".CumstomViewActivity"
+            android:exported="false" />
+        <activity
             android:name=".login.LoginGoogleActivity"
             android:exported="false" />
         <activity android:name=".material_design.MaterialDesignActivity" />
@@ -70,7 +73,8 @@
         <activity android:name=".uri.UriActivity" />
         <activity android:name=".service.ServiceDemoActivity" />
         <activity android:name=".lazyfragment.LazyActivity" />
-        <activity android:name=".ad_dialog.AdActivity"></activity>
+        <activity android:name=".ad_dialog.AdActivity" />
+        <activity android:name=".custom_view.CustomViewActivity" />
 
         <service
             android:name=".service.MyService"

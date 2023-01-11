@@ -15,6 +15,7 @@ import com.sesame.noteproject.ad_dialog.AdActivity;
 import com.sesame.noteproject.anim.AnimActivity;
 import com.sesame.noteproject.arouter.VRouterPath;
 import com.sesame.noteproject.callphone.CallPhoneActivity;
+import com.sesame.noteproject.custom_view.CustomViewActivity;
 import com.sesame.noteproject.databinding.DatabindingActivity;
 import com.sesame.noteproject.deeplink.DeeplinkActivity;
 import com.sesame.noteproject.flexbox.FlexboxActivity;
@@ -47,7 +48,7 @@ public class MenuActivity extends AppCompatActivity {
         ButterKnife.bind(this);
     }
 
-    @OnClick({R.id.tvMerge, R.id.tvTitleBar, R.id.tvARouter, R.id.tvDeeplink, R.id.tvAnim, R.id.tvRefresh, R.id.tvWebSocket, R.id.tvDataBinding, R.id.tvRecyclerView, R.id.tvKotlinNull, R.id.tvViewModel, R.id.tvLiveData, R.id.tvLiveDataKt, R.id.tvMd, R.id.tvCallPhone, R.id.tvViewBinding, R.id.tvModule, R.id.tvFlexbox, R.id.tvUri, R.id.tvEventTest, R.id.tvService, R.id.tvLazyLoadFragment, R.id.tvCoordinatorLayout, R.id.tvAd, R.id.tvGoogle})
+    @OnClick({R.id.tvMerge, R.id.tvTitleBar, R.id.tvARouter, R.id.tvDeeplink, R.id.tvAnim, R.id.tvRefresh, R.id.tvWebSocket, R.id.tvDataBinding, R.id.tvRecyclerView, R.id.tvKotlinNull, R.id.tvViewModel, R.id.tvLiveData, R.id.tvLiveDataKt, R.id.tvMd, R.id.tvCallPhone, R.id.tvViewBinding, R.id.tvModule, R.id.tvFlexbox, R.id.tvUri, R.id.tvEventTest, R.id.tvService, R.id.tvLazyLoadFragment, R.id.tvCoordinatorLayout, R.id.tvAd, R.id.tvGoogle, R.id.tvCustomView})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.tvMerge:
@@ -154,6 +155,10 @@ public class MenuActivity extends AppCompatActivity {
 
             case R.id.tvGoogle:
                 startActivity(new Intent(this, LoginGoogleActivity.class));
+                break;
+
+            case R.id.tvCustomView:
+                startActivity(new Intent(this, CustomViewActivity.class));
                 break;
         }
     }
