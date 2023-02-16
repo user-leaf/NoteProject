@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
+    <declare-styleable name="GridLayout">
+        <attr name="gl_column" format="integer" />
+        <attr name="gl_columnSpace" format="dimension" />
+        <attr name="gl_rowSpace" format="dimension" />
+    </declare-styleable>
 </resources>
